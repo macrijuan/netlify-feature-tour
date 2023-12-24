@@ -7,6 +7,6 @@ router.get("/test", async(req,res)=>{
   res.json({message:"Hello world!"});
 });
 
-router.use('/.netlify/functions/index', router);
+router.use('https://stirring-jalebi-cda26f.netlify.app/.netlify/functions/index', router);
 
 exports.handler = serverless(app);
