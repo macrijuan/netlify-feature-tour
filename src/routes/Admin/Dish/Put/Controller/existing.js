@@ -1,9 +1,9 @@
 const {Router}=require("express");
 const router = Router();
-const{Dish}=require("../../../../../db");
 const{Op}=require("sequelize");
-const {existingFor, equalToCurent}=require("../../../../error");
-const {dobleSpaceEraser}=require("../../../../../formatter");
+const{Dish}=require("../../../../../db").handler;
+const {existingFor, equalToCurent}=require("../../../../error").handler;
+const {dobleSpaceEraser}=require("../../../../../formatter").handler;
 
 router.use(async(req,res,next)=>{
   res.locals.existing={where:{}};

@@ -1,7 +1,7 @@
-const {Admin} = require("../../../../../db");
+const {Admin} = require("../../../../../db").handler;
 const {Router}=require("express");
 const router = Router();
-const {existing, equalToCurent, errJSON, unknown} = require("../../../../error");
+const {existing, equalToCurent, errJSON, unknown} = require("../../../../error").handler;
 
 router.use(async(req,res,next)=>{
   if(req.body.email){

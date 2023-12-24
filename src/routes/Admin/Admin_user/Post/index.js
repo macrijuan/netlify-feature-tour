@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const router = Router();
-const format = require("./Controllers/format");
-const existing = require("./Controllers/existing");
-const authorization = require("./Controllers/authorization");
-const {Admin}=require("../../../../db");
-const {unknown, errJSON}=require("../../../error");
+const format = require("./Controllers/format").handler;
+const existing = require("./Controllers/existing").handler;
+const authorization = require("./Controllers/authorization").handler;
+const {Admin}=require("../../../../db").handler;
+const {unknown, errJSON}=require("../../../error").handler;
 const {dobleSpaceEraser}=require("../../../../formatter");
 
 router.post("/post_admin_user/:code",

@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const getOption = require("./Get");
+const getOption = require("./Get").handler;
 
 router.use("/option", getOption);
 

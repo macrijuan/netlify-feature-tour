@@ -1,9 +1,9 @@
 const{Router}=require("express");
 const router = Router();
-const postInventory = require("./Post");
-const getInventory = require("./Get");
-const putInventory = require("./Put");
-const deleteInventory = require("./Delete");
+const postInventory = require("./Post").handler;
+const getInventory = require("./Get").handler;
+const putInventory = require("./Put").handler;
+const deleteInventory = require("./Delete").handler;
 
 router.use("/inventory",  postInventory, getInventory, putInventory, deleteInventory);
 

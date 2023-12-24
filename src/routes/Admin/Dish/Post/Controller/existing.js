@@ -1,8 +1,8 @@
 const {Router}=require("express");
 const router = Router();
-const{Dish}=require("../../../../../db");
 const{Op}=require("sequelize");
-const {existingFor}=require("../../../../error");
+const{Dish}=require("../../../../../db").handler;
+const {existingFor}=require("../../../../error").handler;
 
 router.use(async(req,res,next)=>{
   // console.log(req.body.name);

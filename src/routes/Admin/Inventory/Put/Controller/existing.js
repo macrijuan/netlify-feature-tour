@@ -1,7 +1,7 @@
 const {Router}=require("express");
 const router = Router();
-const {Inventory}=require("../../../../../db");
-const {unknown, existing, equalToCurent, errJSON}=require("../../../../error");
+const {Inventory}=require("../../../../../db").handler;
+const {unknown, existing, equalToCurent, errJSON}=require("../../../../error").handler;
 
 router.use(async (req,res, next)=>{
   try{

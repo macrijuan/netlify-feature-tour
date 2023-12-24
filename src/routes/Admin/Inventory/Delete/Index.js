@@ -1,8 +1,8 @@
 const { Router }=require("express");
 const router = Router();
-const { Inventory }=require("../../../../db");
-const { getMany }=require("../../../routeFormatter");
-const { unknown, errJSON, notFound }=require("../../../error");
+const { Inventory }=require("../../../../db").handler;
+const { getMany }=require("../../../routeFormatter").handler;
+const { unknown, errJSON, notFound }=require("../../../error").handler;
 
 router.delete("/delete_inventory/:id",
   async (req,res)=>{

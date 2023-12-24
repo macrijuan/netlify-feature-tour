@@ -1,7 +1,7 @@
 const {Router}=require("express");
 const router = Router();
-const {Reservation}=require("../../../../db");
-const { errJSON, unknown, notFound }=require("../../../error");
+const {Reservation}=require("../../../../db").handler;
+const { errJSON, unknown, notFound }=require("../../../error").handler;
 
 router.get("/get_user_reservations/:user",
 async(req,res)=>{

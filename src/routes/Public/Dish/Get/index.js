@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const router = Router();
-const format = require("./Controller/format");
+const format = require("./Controller/format").handler;
 const clauseSetter = require("./Controller/clauseSetter");
-const {Dish}=require("../../../../db");
-const {notFound, unknown, errJSON} = require("../../../error");
+const {Dish}=require("../../../../db").handler;
+const {notFound, unknown, errJSON} = require("../../../error").handler;
 
 router.get("/get_dishes", async(req,res)=>{
 	try{

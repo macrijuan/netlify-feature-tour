@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const router = Router();
-const format = require("./Controller/format");
-const existing = require("./Controller/existing");
-const {Diet}=require("../../../../db");
-const {getMany}=require("../../../routeFormatter");
-const {notFound, unknown, errJSON} = require("../../../error");
+const format = require("./Controller/format").handler;
+const existing = require("./Controller/existing").handler;
+const {Diet}=require("../../../../db").handler;
+const {getMany}=require("../../../routeFormatter").handler;
+const {notFound, unknown, errJSON} = require("../../../error").handler;
 
 router.put("/update_diet/:id",
 	(req,res, next)=>{res.locals.params=req.params; res.locals.errors={}; next();},

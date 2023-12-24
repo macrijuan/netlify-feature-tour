@@ -1,8 +1,8 @@
 const {Router}=require("express");
 const router = Router();
-const {Table}=require("../../../../db");
-const {getMany}=require("../../../routeFormatter");
-const {errJSON, notFound, unknown}=require("../../../error");
+const {Table}=require("../../../../db").handler;
+const {getMany}=require("../../../routeFormatter").handler;
+const {errJSON, notFound, unknown}=require("../../../error").handler;
 
 router.delete("/delete_table/:id",async(req,res)=>{
   try{

@@ -1,5 +1,5 @@
-const { errJSON, notFound, unknown } = require("./error");
-const {Option}=require("../db");
+const { errJSON, notFound, unknown } = require("./error").handler;
+const {Option}=require("../db").handler;
 const {Op}=require("sequelize");
 
 async function setOptions(data, model){

@@ -1,9 +1,9 @@
 const {Router}=require("express");
 const router = Router();
-const {Admin, Option}=require("../../../../db");
+const {Admin}=require("../../../../db").handler;
 const {Op}=require("sequelize");
-const {notFound, errJSON}=require("../../../error");
-const { getMany }=require("../../../routeFormatter");
+const {notFound, errJSON}=require("../../../error").handler;
+const { getMany }=require("../../../routeFormatter").handler;
 
 router.get("/get_admin_users", async(req,res)=>{
   res.locals.data = {

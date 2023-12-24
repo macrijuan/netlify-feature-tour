@@ -1,9 +1,9 @@
 const{Router}=require("express");
 const router = Router();
-const format = require("./Controller/format");
-const existing = require("./Controller/existing");;
-const{User}=require("../../../../db");
-const {notFound, unknown, errJSON} = require("../../../error");
+const format = require("./Controller/format").handler;
+const existing = require("./Controller/existing").handler;;
+const{User}=require("../../../../db").handler;
+const {notFound, unknown, errJSON} = require("../../../error").handler;
 
 router.put("/update_user/:id",
   (req,res,next)=>{res.locals.params=req.params; next();},

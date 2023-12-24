@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const router = Router();
-const format = require("./Controllers/format");
-const existing = require("./Controllers/existing");
-const {User}=require("../../../../db");
-const {unknown}=require("../../../error");
+const format = require("./Controllers/format").handler;
+const existing = require("./Controllers/existing").handler;
+const {User}=require("../../../../db").handler;
+const {unknown}=require("../../../error").handler;
 const {dobleSpaceEraser}=require("../../../../formatter");
 
 router.post("/post_user", format, existing, async(req,res)=>{

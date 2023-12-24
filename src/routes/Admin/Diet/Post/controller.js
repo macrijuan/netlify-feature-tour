@@ -1,5 +1,5 @@
-const {Diet}=require("../../../../db");
-const error = require("../../../error");
+const {Diet}=require("../../../../db").handler;
+const error = require("../../../error").handler;
 
 async function existingDiet(dietName){
     return Diet.findOne({where:{name:dietName}})

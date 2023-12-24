@@ -1,8 +1,8 @@
 const {Router}=require("express");
 const router = Router();
-const{Diet}=require("../../../../../db");
-const {existingFor, equalToCurent}=require("../../../../error");
-const {dobleSpaceEraser}=require("../../../../../formatter");
+const{Diet}=require("../../../../../db").handler;
+const {existingFor, equalToCurent}=require("../../../../error").handler;
+const {dobleSpaceEraser}=require("../../../../../formatter").handler;
 
 router.use(async(req,res,next)=>{
   if(req.body.name){

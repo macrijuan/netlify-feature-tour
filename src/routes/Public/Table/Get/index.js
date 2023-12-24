@@ -1,8 +1,8 @@
 const {Router}=require("express");
 const router = Router();
-const {errJSON, notFound, unknown}=require("../../../error");
-const {Table}=require("../../../../db");
-const { getMany }=require("../../../routeFormatter")
+const {errJSON, notFound, unknown}=require("../../../error").handler;
+const {Table}=require("../../../../db").handler;
+const { getMany }=require("../../../routeFormatter").handler
 
 router.get("/get_table/:id",async(req,res)=>{
   try{

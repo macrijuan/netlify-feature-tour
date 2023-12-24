@@ -1,6 +1,6 @@
 const {Router}=require("express");
 const router = Router();
-const{dietNameValidator, dietDescValidator}=require("../../validation");
+const{dietNameValidator, dietDescValidator}=require("../../validation").handler;
 
 router.use((req,res,next)=>{
   Object.keys(req.body).forEach(prop=>{

@@ -1,12 +1,12 @@
 const{Router}=require("express");
 const router = Router();
-const format = require("./Controller/format");
+const format = require("./Controller/format").handler;
 const statusFormat = require("./Controller/status_data");
-const existing = require("./Controller/existing");
-const{Admin}=require("../../../../db");
+const existing = require("./Controller/existing").handler;
+const{Admin}=require("../../../../db").handler;
 const {Op}=require("sequelize");
-const {notFound, unknown, errJSON} = require("../../../error");
-const {getMany}=require("../../../routeFormatter");
+const {notFound, unknown, errJSON} = require("../../../error").handler;
+const {getMany}=require("../../../routeFormatter").handler;
 
 router.put("/update_admin_user/:id",
   (req,res,next)=>{res.locals.params=req.params; next();},

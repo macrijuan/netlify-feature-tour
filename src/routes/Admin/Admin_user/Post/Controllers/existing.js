@@ -1,7 +1,7 @@
-const {Admin} = require("../../../../../db");
-const {Router}=require("express");
 const router = Router();
-const {existing} = require("../../../../error");
+const {Router}=require("express");
+const {Admin} = require("../../../../../db").handler;
+const {existing} = require("../../../../error").handler;
 
 router.use(async(req,res,next)=>{
   Admin.findOne({

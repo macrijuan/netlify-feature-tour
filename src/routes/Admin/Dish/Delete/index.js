@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const router = Router();
-const {notFound, unknown, errJSON} = require("../../../error");
-const {Dish, Diet}=require("../../../../db");
-const {getMany, relationGetter}=require("../../../routeFormatter");
+const {notFound, unknown, errJSON} = require("../../../error").handler;
+const {Dish, Diet}=require("../../../../db").handler;
+const {getMany, relationGetter}=require("../../../routeFormatter").handler;
 
 //The route /delete_dish/:id recives the dish's id the client wants to delete.
 router.delete("/delete_dish/:id", async (req,res)=>{

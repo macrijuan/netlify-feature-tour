@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const router = Router();
-const {Dish, Diet}=require("../../../../db");
-const errors = require("../../../error");
-const { getMany, relationGetter }=require("../../../routeFormatter");
 const {Op}=require("sequelize");
+const {Dish, Diet}=require("../../../../db").handler;
+const errors = require("../../../error").handler;
+const { getMany, relationGetter }=require("../../../routeFormatter").handler;
 
 router.get("/get_dishes", async(req,res)=>{
 	try{

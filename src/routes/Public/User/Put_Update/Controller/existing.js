@@ -1,7 +1,7 @@
 const {Router}=require("express");
 const router = Router();
-const {User} = require("../../../../../db");
-const {existing, equalToCurent} = require("../../../../error");
+const {User} = require("../../../../../db").handler;
+const {existing, equalToCurent} = require("../../../../error").handler;
 
 router.use(async(req,res,next)=>{
   if(req.body.email){

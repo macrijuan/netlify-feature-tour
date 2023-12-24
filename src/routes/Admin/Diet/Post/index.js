@@ -1,10 +1,10 @@
 const {Router}=require("express");
 const router = Router();
-const {existingDiet, postDiet}=require("./controller");
-const {dietNameValidator, dietDescValidator}=require("../validation");
-const {Diet}=require("../../../../db");
-const { getMany }=require("../../../routeFormatter");
-const {unknown, errJSON} = require("../../../error");
+const {existingDiet, postDiet}=require("./controller").handler;
+const {dietNameValidator, dietDescValidator}=require("../validation").handler;
+const {Diet}=require("../../../../db").handler;
+const { getMany }=require("../../../routeFormatter").handler;
+const {unknown, errJSON} = require("../../../error").handler;
 
 router.post("/post_diet",async(req,res)=>{
 	try{

@@ -1,9 +1,9 @@
 const {Router}=require("express");
 const router = Router();
-const format = require("../Controller/format");
-const existing = require("../Controller/existing");
-const {Reservation}=require("../../../../db");
-const { errJSON, notFound, unknown } = require("../../../error");
+const format = require("../Controller/format").handler;
+const existing = require("../Controller/existing").handler;
+const {Reservation}=require("../../../../db").handler;
+const { errJSON, notFound, unknown } = require("../../../error").handler;
 
 router.put("/update_reservation/:user/:ticket",
 (req,res,next)=>{ res.locals.user = req.params.user; res.locals.update=true; next(); },

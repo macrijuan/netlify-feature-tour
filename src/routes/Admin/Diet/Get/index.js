@@ -1,10 +1,8 @@
 const {Router} = require("express");
 const router = Router();
-const searchFormat = require("./Controller/format.js");
-const {Diet}=require("../../../../db.js");
-const {Op}=require("sequelize");
-const { notFound, unknown } = require("../../../error.js");
-const { getMany } = require("../../../routeFormatter.js");
+const {Diet}=require("../../../../db.js").handler;
+const { notFound, unknown } = require("../../../error.js").handler;
+const { getMany } = require("../../../routeFormatter.js").handler;
 
 router.get("/get_diets", async(req,res)=>{
   try{

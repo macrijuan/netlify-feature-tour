@@ -1,8 +1,8 @@
 const {Router}=require("express");
 const router = Router();
-const { tableValidator, customersValidator, yearValidator, monthValidator, dayValidator, timeValidator, userOwnerValidator }=require("../validation");
-const { isMandatory } = require("../../../error");
-const { Reservation } = require("../../../../db");
+const { tableValidator, customersValidator, yearValidator, monthValidator, dayValidator, timeValidator, userOwnerValidator }=require("../validation").handler;
+const { isMandatory } = require("../../../error").handler;
+const { Reservation } = require("../../../../db").handler;
 
 router.use((req,res,next)=>{
   const keys = Object.keys;

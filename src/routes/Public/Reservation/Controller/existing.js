@@ -1,7 +1,7 @@
 const {Router}=require("express");
 const router = Router();
-const {Reservation}=require("../../../../db");
-const {errJSON, unknown}=require("../../../error");
+const {Reservation}=require("../../../../db").handler;
+const {errJSON, unknown}=require("../../../error").handler;
 
 
 

@@ -1,6 +1,6 @@
 const {Router}=require("express");
 const router = Router();
-const {errJSON} = require("../../../../error");
+const {errJSON} = require("../../../../error").handler;
 require("dotenv").config();
 const {SUPERADMIN}=process.env;
 

@@ -1,10 +1,10 @@
 const {Router}=require("express");
 const router = Router();
-const format = require("./Controller/format");
-const existing = require("./Controller/existing");
-const {Inventory}=require("../../../../db");
-const {getMany}=require("../../../routeFormatter");
-const {unknown}=require("../../../error");
+const format = require("./Controller/format").handler;
+const existing = require("./Controller/existing").handler;
+const {Inventory}=require("../../../../db").handler;
+const {getMany}=require("../../../routeFormatter").handler;
+const {unknown}=require("../../../error").handler;
 
 router.post("/post_inventory",
   format,

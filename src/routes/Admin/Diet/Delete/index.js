@@ -1,8 +1,8 @@
 const {Router} = require("express");
 const router = Router();
-const {Diet}=require("../../../../db");
-const{getMany}=require("../../../routeFormatter");
-const { notFound, unknown } = require("../../../error");
+const {Diet}=require("../../../../db").handler;
+const{getMany}=require("../../../routeFormatter").handler;
+const { notFound, unknown } = require("../../../error").handler;
 
 router.delete("/delete_diet/:id", async(req,res)=>{
   try{

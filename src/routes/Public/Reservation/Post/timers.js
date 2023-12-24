@@ -1,4 +1,4 @@
-const {Reservation}=require("../../../../db");
+const {Reservation}=require("../../../../db").handler;
 
 async function setResrAsExipred(reservation){
   return reservation.update({expired:true})

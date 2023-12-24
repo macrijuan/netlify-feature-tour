@@ -1,10 +1,10 @@
 const {Router}=require("express");
 const router=Router();
-const format = require("../Controller/format");
-const existing = require("../Controller/existing");
-const {Table} = require("../../../../db");
-const {getMany}=require("../../../routeFormatter");
-const {errJSON, unknown}=require("../../../error");
+const format = require("../Controller/format").handler;
+const existing = require("../Controller/existing").handler;
+const {Table} = require("../../../../db").handler;
+const {getMany}=require("../../../routeFormatter").handler;
+const {errJSON, unknown}=require("../../../error").handler;
 
 
 router.post("/post_table",

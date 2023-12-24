@@ -1,4 +1,4 @@
-const {User, User_deleted}=require("../../../../db");
+const {User, User_deleted}=require("../../../../db").handler;
 
 async function deleteAdmin(pk, email){
   try{

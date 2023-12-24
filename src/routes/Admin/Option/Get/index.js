@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
-const {Diet, Option}=require("../../../../db");
-const {errJSON, notFound, unknown} = require("../../../error");
+const {Diet, Option}=require("../../../../db").handler;
+const {errJSON, unknown} = require("../../../error").handler;
 
 router.get("/get_option", async(req,res)=>{
 	try{

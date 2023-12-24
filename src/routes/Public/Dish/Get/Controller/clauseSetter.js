@@ -1,6 +1,6 @@
 const{Router}=require("express");
 const router = Router();
-const {isMandatory, maxLength, unknown}=require("../../../../error");
+const {isMandatory, maxLength, unknown}=require("../../../../error").handler;
 const {Op}=require("sequelize");
 
 router.use((req,res,next)=>{

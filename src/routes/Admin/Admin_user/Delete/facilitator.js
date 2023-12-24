@@ -1,4 +1,4 @@
-const {Admin, Admin_deleted}=require("../../../../db");
+const {Admin, Admin_deleted}=require("../../../../db").handler;
 require("dotenv").config();
 const {SUPERADMIN}=process.env;
 

@@ -1,4 +1,4 @@
-const {wrongDataType, wrongLengthBetween, wrongLengthBetweenArr, wrongCharType, isMandatory, wrongNumberSize, copyedData} = require("../../error");
+const {wrongDataType, wrongLengthBetween, wrongLengthBetweenArr, wrongCharType, isMandatory, wrongNumberSize, copyedData} = require("../../error").handler;
 
 //nameValidator --> name=string, errors=arr. || fills errors.name with error messeges if format not allowed.
 function nameValidator(name, errors){

@@ -1,9 +1,9 @@
 const{Router}=require("express");
 const router = Router();
-const{setAdminAsDeleted}=require("./facilitator.js");
-const{Admin}=require("../../../../db");
-const {getMany}=require("../../../routeFormatter.js");
-const {unknown, notFound, errJSON} = require("../../../error.js");
+const{setAdminAsDeleted}=require("./facilitator.js").handler;
+const{Admin}=require("../../../../db").handler;
+const {getMany}=require("../../../routeFormatter.js").handler;
+const {unknown, notFound, errJSON} = require("../../../error.js").handler;
 
 router.delete("/delete_admin_user/:id",async(req,res)=>{
   try{

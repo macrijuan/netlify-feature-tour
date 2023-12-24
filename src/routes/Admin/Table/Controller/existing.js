@@ -1,7 +1,7 @@
 const {Router}=require("express");
 const router=Router();
-const{Table}=require("../../../../db");
-const { errJSON, unknown } = require("../../../error");
+const{Table}=require("../../../../db").handler;
+const { errJSON, unknown } = require("../../../error").handler;
 
 router.use(async(req,res,next)=>{
   if(req.body.name){

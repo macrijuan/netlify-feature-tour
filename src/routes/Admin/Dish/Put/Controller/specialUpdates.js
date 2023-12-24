@@ -1,8 +1,8 @@
 const {Router} = require("express");
 const router = Router();
-const { Dish, Diet, dish_diets } = require("../../../../../db");
 const { Op } = require("sequelize");
-const { errJSON, notFound } = require("../../../../error");
+const { Dish, Diet, dish_diets } = require("../../../../../db").handler;
+const { errJSON, notFound } = require("../../../../error").handler;
 
 router.use( async( req, res, next )=>{
   Dish.findByPk( res.locals.params.id )

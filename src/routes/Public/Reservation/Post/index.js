@@ -3,9 +3,9 @@ const router = Router();
 const format = require("../Controller/format.js");
 const existing = require("../Controller/existing.js");
 const maxResrs = require("../Controller/maximum.js");
-const { Reservation, User }=require("../../../../db");
+const { Reservation, User }=require("../../../../db").handler;
 const { todayResrTimer, futureDayResrTimer } = require("./timers");
-const { errJSON, unknown, notFound } = require("../../../error");
+const { errJSON, unknown, notFound } = require("../../../error").handler;
 
 router.post("/post_reservation/:user",
 (req,res,next)=>{res.locals.user = req.params.user; next();},

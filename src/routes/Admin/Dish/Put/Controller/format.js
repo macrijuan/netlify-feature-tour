@@ -1,6 +1,6 @@
 const {Router}=require("express");
 const router = Router();
-const{nameValidator, ingredientsValidator, dietsValidator, descriptionValidator, imageValidator, priceValidator}=require("../../validation");
+const{nameValidator, ingredientsValidator, dietsValidator, descriptionValidator, imageValidator, priceValidator}=require("../../validation").handler;
 
 router.use((req,res,next)=>{
   if(req.body.hasOwnProperty("name"))nameValidator(req.body.name, res.locals.errors);

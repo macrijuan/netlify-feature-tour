@@ -3,8 +3,8 @@ const router = Router();
 const format = require("../Controller/format.js");
 const existing = require("../Controller/existing.js");
 const maxResrs = require("../Controller/maximum.js");
-const { Reservation, User, Table }=require("../../../../db");
-const { errJSON, unknown, notFound } = require("../../../error");
+const { Reservation, User, Table }=require("../../../../db").handler;
+const { errJSON, unknown, notFound } = require("../../../error").handler;
 
 router.post("/post_reservation/:user",
 (req,res,next)=>{res.locals.user = req.params.user; next();},

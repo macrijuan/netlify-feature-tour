@@ -1,6 +1,6 @@
 const{Router}=require("express");
 const router = Router();
-const { unknown, errJSON, maxLength}=require("../../../../error");
+const { unknown, errJSON, maxLength}=require("../../../../error").handler;
 
 router.use((req,res,next)=>{
   try{

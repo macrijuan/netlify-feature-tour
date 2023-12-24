@@ -1,7 +1,7 @@
 const{Router}=require("express");
 const router = Router();
 
-const getReservations = require("./Get");
+const getReservations = require("./Get").handler;
 
 router.use("/reservation", getReservations);
 

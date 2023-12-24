@@ -1,11 +1,11 @@
 const { Router } = require('express');
-const router = Router();
-const { Dish, Diet }=require("../../../../db")
-const { unknown, errJSON, notFound } = require("../../../error");
-const { getMany, relationGetter }=require("../../../routeFormatter");
 const { Op } = require("sequelize");
-const format = require("./Controller/format");
-const existing = require("./Controller/existing");
+const router = Router();
+const { Dish, Diet }=require("../../../../db").handler;
+const { unknown, errJSON, notFound } = require("../../../error").handler;
+const { getMany, relationGetter }=require("../../../routeFormatter").handler;
+const format = require("./Controller/format").handler;
+const existing = require("./Controller/existing").handler;
 
 router.post("/post_dish",
 format,
