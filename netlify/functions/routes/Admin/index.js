@@ -1,8 +1,8 @@
-const { Router } = require("express");
+import { Router } from "express";
 const router = Router();
 
 router.get("/test", async(req,res)=>{
   res.json("This is an admins-route");
 });
 
-exports=router;
+export default router;

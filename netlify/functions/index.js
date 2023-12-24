@@ -1,15 +1,15 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const routes = require('../../routes/index.js');
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import { urlencoded, json } from 'body-parser';
+import morgan from 'morgan';
+import routes from './routes/index.js';
 
 const server = express();
 
 server.name = 'API';
 
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(bodyParser.json({ limit: '50mb' }));
+server.use(urlencoded({ extended: true, limit: '50mb' }));
+server.use(json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
@@ -29,9 +29,8 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(status).send(message);
 });
 
+server.use('/', routes);
 
-exports.handler = async () => {
-  return server.use('/', routes);
-};
+export const handler = server;
 
 //THIS WORKS https://main--stirring-jalebi-cda26f.netlify.app/.netlify/functions/hello-world
