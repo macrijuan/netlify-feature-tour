@@ -4,10 +4,7 @@ const router = express.Router();
 const serverless = require("serverless-http");
 
 router.get('/', async(req,res)=>{
-  return{
-    statusCode: 200,
-    body:'App is running'
-  }
+  return new Response("App is running");
 });
 
 router.get('/test', async(req,res)=>{
