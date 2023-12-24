@@ -31,8 +31,13 @@
 
 // server.use('/', routes);
 
-export default async (req, context) => {
-  return new Response({message:"Hello, world!"});
+exports.handler = async () => {
+  return {
+    statusCOde:200,
+    body:JSON.stringify({
+      message:"Hello, world!"
+    })
+  };
 };
 
 //THIS WORKS https://main--stirring-jalebi-cda26f.netlify.app/.netlify/functions/hello-world
