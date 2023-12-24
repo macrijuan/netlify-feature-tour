@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const public = require("./Public");
+const public = require("./Public").handler;
 const admin = require("./Admin");
 
 router.use("/public", public);

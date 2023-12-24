@@ -3,8 +3,8 @@ const app = express();
 const router = express.Router();
 const serverless = require("serverless-http");
 
-const routes = require("../../src/routes/index.js");
-const { conn } = require("../../src/db.js");
+const routes = require("../../src/routes/index.js").handler;
+const { conn } = require("../../src/db.js").handler;
 
 
 
