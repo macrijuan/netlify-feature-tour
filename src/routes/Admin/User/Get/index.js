@@ -40,4 +40,4 @@ router.get("/user/get_user/:id", async(req,res)=>{
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

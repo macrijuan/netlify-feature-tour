@@ -2,7 +2,7 @@ const { STRING, ARRAY, BOOLEAN, TEXT, INTEGER, ENUM, JSON } = require('sequelize
 const {arrayValidator} = require("../models_validations");
 const { dobleSpaceEraser, setValue }=require("../formatter");
 
-module.exports = (sequelize) => {
+module.exports.handler = (sequelize) => {
   sequelize.define('dish', {
     // id:{
     //   type: UUID,

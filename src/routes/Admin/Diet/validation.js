@@ -18,7 +18,7 @@ function dietDescValidator(description, errors){
   if(!errors.description.length)delete errors.description;
 };
 
-module.exports={
+module.exports.handler={
 	dietNameValidator,
 	dietDescValidator
 };

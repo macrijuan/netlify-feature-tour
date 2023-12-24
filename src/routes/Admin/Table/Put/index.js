@@ -45,4 +45,4 @@ router.put("/update_table/:id",
 // 	};
 // });
 
-module.exports = router;
+module.exports.handler = router;

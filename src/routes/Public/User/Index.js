@@ -7,4 +7,4 @@ const deleteUser = require("./Delete");
 
 router.use("/user", postUser, getUser, putUser, deleteUser);
 
-module.exports = router;
+module.exports.handler = router;

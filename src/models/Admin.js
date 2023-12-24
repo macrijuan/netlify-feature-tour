@@ -1,6 +1,6 @@
-const { STRING, ENUM, JSON } = require('sequelize');
+const { STRING, ENUM } = require('sequelize');
 
-module.exports = (sequelize) => {
+module.exports.handler = (sequelize) => {
   sequelize.define('admin', {
     // id:{
     //   type: UUID,

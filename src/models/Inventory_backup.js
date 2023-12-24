@@ -1,6 +1,6 @@
 const { STRING, INTEGER, ENUM, JSON } = require('sequelize');
 const { arrRemover, setUpdatable } = require('../formatter');
-module.exports = (sequelize) => {
+module.exports.handler = (sequelize) => {
   sequelize.define('inventory_deleted', {
     // id:{
     //   type: UUID,

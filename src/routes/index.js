@@ -7,4 +7,4 @@ const admin = require("./Admin");
 router.use("/public", public);
 router.use("/administrator", admin);
 
-module.exports = router
+module.exports.handler = router

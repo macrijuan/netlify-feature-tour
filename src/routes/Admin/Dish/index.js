@@ -8,4 +8,4 @@ const deleteDish = require("./Delete");
 //getDish SENDS ONE OR MULTIPLE DISHES.
 router.use("/dish", postDish, getDish, putDish, deleteDish );
 
-module.exports = router;
+module.exports.handler = router;

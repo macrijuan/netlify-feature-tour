@@ -1,7 +1,7 @@
 const { STRING, JSON, BOOLEAN } = require('sequelize');
 const { setValue }=require("../formatter");
 
-module.exports = (sequelize) => {
+module.exports.handler = (sequelize) => {
   sequelize.define('diet', {
     // id:{
     //   type: UUID,

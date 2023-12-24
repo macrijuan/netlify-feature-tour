@@ -4,4 +4,4 @@ const getDiet = require("../../Public/Diet/Get");
 
 router.use("/diet", getDiet);
 
-module.exports = router;
+module.exports.handler = router;

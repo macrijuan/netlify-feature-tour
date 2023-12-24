@@ -27,4 +27,4 @@ router.get("/get_tables",async(req,res)=>{ //GOTA UPDATE THIS ROUTE TO MAKE FILT
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

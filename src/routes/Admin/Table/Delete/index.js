@@ -19,4 +19,4 @@ router.delete("/delete_table/:id",async(req,res)=>{
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

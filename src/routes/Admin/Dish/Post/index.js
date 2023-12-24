@@ -53,4 +53,4 @@ async( req, res )=>{
 //   }).then(dish=>{res.json(dish)});
 // });
 
-module.exports = router;
+module.exports.handler = router;

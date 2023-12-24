@@ -110,7 +110,7 @@ function priceValidator(price, errors){
   if(!errors.price.length)delete errors.price;
 };
 
-module.exports={
+module.exports.handler={
   nameValidator,
   ingredientsValidator,
   dietsValidator,

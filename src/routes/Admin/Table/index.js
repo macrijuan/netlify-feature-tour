@@ -7,4 +7,4 @@ const deleteTable = require("./Delete");
 
 router.use("/table", postTable, getTable, putTable, deleteTable);
 
-module.exports = router;
+module.exports.handler = router;
