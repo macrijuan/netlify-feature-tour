@@ -5,4 +5,4 @@ router.get("/test", async(req,res)=>{
   res.json("This is an admins-route");
 });
 
-exports = router;
+module.exports.handler = router;
