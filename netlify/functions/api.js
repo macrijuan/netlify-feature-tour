@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router();
 const serverless = require("serverless-http");
 
-router.get('/', async(req,res)=>{
+router.get("/", async(req,res)=>{
   res.send("App is running");
 });
 
