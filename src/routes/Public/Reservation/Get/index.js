@@ -48,4 +48,4 @@ async(req,res)=>{
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

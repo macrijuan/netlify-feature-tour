@@ -58,4 +58,4 @@ router.get("/get_by_filter",async(req,res)=>{
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

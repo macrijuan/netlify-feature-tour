@@ -30,4 +30,4 @@ router.put("/update_user/:id",
     };
 });
 
-module.exports=router;
+module.exports.handler=router;

@@ -16,4 +16,4 @@ conn.authenticate().then(()=>{
   });
 });
 
-module.exports.handler = serverless(app);
+module.exports.handler.handler = serverless(app);

@@ -39,7 +39,7 @@ function jsonValidator(json, keys, values){
 
 
 
-module.exports={
+module.exports.handler={
 	arrayValidator,
 	dateValidatror,
 	jsonValidator

@@ -62,4 +62,4 @@ router.get("/get_by_email", async(req,res)=>{
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

@@ -5,4 +5,4 @@ const getReservations = require("./Get");
 
 router.use("/reservation", getReservations);
 
-module.exports = router;
+module.exports.handler = router;

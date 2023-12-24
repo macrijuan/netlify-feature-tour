@@ -21,4 +21,4 @@ router.post("/post_user", format, existing, async(req,res)=>{
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

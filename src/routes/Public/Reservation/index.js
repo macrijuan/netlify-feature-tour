@@ -7,4 +7,4 @@ const deleteReservation = require("./Delete");
 
 router.use("/reservation", postReservation, updateReservation, getReservation, deleteReservation);
 
-module.exports = router;
+module.exports.handler = router;

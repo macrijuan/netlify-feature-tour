@@ -40,4 +40,4 @@ router.get("/test", async(req,res)=>{
   };
 });
 
-module.exports = router;
+module.exports.handler = router;

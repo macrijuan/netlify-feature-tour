@@ -22,4 +22,4 @@ router.delete("/delete_inventory/:id",
   }
 );
 
-module.exports = router;
+module.exports.handler = router;

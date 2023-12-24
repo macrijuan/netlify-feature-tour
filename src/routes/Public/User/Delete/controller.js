@@ -44,6 +44,6 @@ async function setAdminAsDeleted(pk){
   };
 };
 
-module.exports={
+module.exports.handler={
   setAdminAsDeleted
 };

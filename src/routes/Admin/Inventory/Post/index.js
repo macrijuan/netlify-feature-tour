@@ -25,4 +25,4 @@ router.post("/post_inventory",
   }
 );
 
-module.exports = router;
+module.exports.handler = router;

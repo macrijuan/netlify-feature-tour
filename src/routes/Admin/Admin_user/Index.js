@@ -8,4 +8,4 @@ const getAdmin = require("./Get");
 //getAdmin gets one or multiple administrators
 router.use("/admin", postAdmin, getAdmin, putAdmin, deleteAdmin);
 
-module.exports = router;
+module.exports.handler = router;
