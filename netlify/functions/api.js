@@ -3,12 +3,20 @@ const app = express();
 const router = express.Router();
 const serverless = require("serverless-http");
 
-router.get('/', (req,res)=>{
-  res.send("Hello world!");
+router.get('/', async(req,res)=>{
+  return {
+    statusCode: 200,
+    body: 'App is running...'
+  };
 });
 
-router.get('/test', (req,res)=>{
-  res.json({message:"This is a JSON test"});
+router.get('/test', async(req,res)=>{
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message:"This is a test JSON."
+    })
+  };
 });
 
 router.use('/.netlify/functions/index', router);
