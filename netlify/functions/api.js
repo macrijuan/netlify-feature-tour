@@ -1,17 +1,9 @@
 const express = require("express");
 const app = express();
-const router = express.Router();
+const routes = require("../../routes/index.js");
 const serverless = require("serverless-http");
 
-router.get("/", async(req,res)=>{
-  res.send("App is running");
-});
 
-router.get('/test', async(req,res)=>{
-  res.json({message:'This is a JSON test'});
-});
-
-
-app.use('/.netlify/functions/api', router);
+app.use('/.netlify/functions/api', routes);
 
 module.exports.handler = serverless(app);
