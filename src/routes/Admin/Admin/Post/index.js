@@ -3,7 +3,7 @@ const router = Router();
 const format = require("./Controllers/format").handler;
 const existing = require("./Controllers/existing").handler;
 const authorization = require("./Controllers/authorization").handler;
-const {Admin}=require("../../../../db").handler;
+const {Admin}=require("../../../../db.js").handler;
 const {unknown, errJSON}=require("../../../error").handler;
 const {dobleSpaceEraser}=require("../../../../formatter").handler;
 
