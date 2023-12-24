@@ -13,4 +13,4 @@ router.get('/test', async(req,res)=>{
 
 router.use('/.netlify/functions/api', router);
 
-exports.handler = app;
+exports.handler = serverless(app);
