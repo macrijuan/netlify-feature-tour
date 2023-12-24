@@ -7,4 +7,4 @@ const _public = require("./Public");
 router.use("/administrator", administrator);
 router.use("/public", _public);
 
-exports = router;
+module.exports.handler = router;

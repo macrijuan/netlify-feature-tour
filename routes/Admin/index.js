@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const router = Router();
 
-router.get("/administrator", (req,res)=>{
+router.get("/test", (req,res)=>{
   res.send("This is an admins-route");
 });
 
-module.exports = router;
+module.exports.handler = router;
