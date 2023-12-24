@@ -49,4 +49,4 @@ router.get("/login", async(req,res)=>{
   });
 });
 
-module.exports.handler = router;
+module.exports = router;

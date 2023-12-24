@@ -1,5 +1,5 @@
 const { STRING, INTEGER, TIME, DATEONLY, DATE, UUID, UUIDV4 } = require("sequelize");
-module.exports.handler = sequelize=>{
+module.exports = sequelize=>{
   sequelize.define("event", {
     name:{
       type:STRING

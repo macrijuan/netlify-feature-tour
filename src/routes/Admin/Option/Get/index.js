@@ -31,4 +31,4 @@ router.get("/get_option", async(req,res)=>{
 	};
 });
 
-module.exports.handler = router;
+module.exports = router;

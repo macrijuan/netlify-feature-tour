@@ -19,4 +19,4 @@ router.delete("/delete_diet/:id", async(req,res)=>{
   };
 });
 
-module.exports.handler = router;
+module.exports = router;

@@ -25,4 +25,4 @@ router.delete("/delete_admin_user/:id",async(req,res)=>{
   };
 });
 
-module.exports.handler=router;
+module.exports=router;

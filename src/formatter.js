@@ -36,7 +36,7 @@ function arrRemover(data, arr){
   return arr;
 };
 
-module.exports.handler = {
+module.exports = {
   dobleSpaceEraser,
   nameFormatter,
   setValue,

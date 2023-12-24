@@ -1,4 +1,4 @@
-module.exports.handler = {
+module.exports = {
   errJSON : function (errorName, errorMessage){return {errors:{[errorName]:errorMessage}}},
   unknown: "Oh, no! There was a problem.",
   notFound: function(data){return `${data} not found.`;},

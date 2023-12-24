@@ -9,7 +9,7 @@ const { conn } = require("../../src/db.js");
 
 
 conn.authenticate().then(()=>{
-  app.use('/.netlify/functions/api', routes.handler);
+  app.use('/.netlify/functions/api', routes);
 }).catch(()=>{
   router.use((req,res)=>{
     res.json({errors:{unknown:"Oh, no! There was a problem."}})

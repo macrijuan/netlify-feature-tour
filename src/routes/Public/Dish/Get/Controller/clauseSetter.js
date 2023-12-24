@@ -13,4 +13,4 @@ router.use((req,res,next)=>{
   next();
 });
 
-module.exports.handler = router;
+module.exports = router;

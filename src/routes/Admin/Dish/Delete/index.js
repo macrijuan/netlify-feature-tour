@@ -43,7 +43,7 @@ router.delete("/delete_dishes", async (req,res)=>{
 });
 
 
-module.exports.handler = router;
+module.exports = router;
 // router.delete("/test",async(req,res)=>{
 // 	Dish.findAndCountAll({limit:"2", offset:"0"}).then(dishes=>{res.json(dishes);});
 // });

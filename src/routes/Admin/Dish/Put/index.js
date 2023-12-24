@@ -39,4 +39,4 @@ router.put("/update_dish/:id",
 // 	};
 // });
 
-module.exports.handler = router;
+module.exports = router;

@@ -52,7 +52,7 @@ function namesValidator(name, routeErrors, dataName){
 };
 
 
-module.exports.handler = {
+module.exports = {
   emailValidator,
   passwordValidator,
   namesValidator

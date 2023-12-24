@@ -81,7 +81,7 @@ async function getMany(Model, query, res, notFoundData){
   });
 };
 
-module.exports.handler = {
+module.exports = {
   setOptions,
   relationGetter,
   getMany

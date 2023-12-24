@@ -12,4 +12,4 @@ const option = require("./Option");
 // async( req, res, next) =>{ setTimeout(()=>{ next() }, 1000); }, 
 router.use( user, dish, diet, admin, inventory, reservation, table, option );
 
-module.exports.handler=router;
+module.exports=router;

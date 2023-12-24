@@ -8,4 +8,4 @@ const table = require("./Table");
 
 router.use( "/", user, dish, diet, reservation, table );
 
-module.exports.handler = router;
+module.exports = router;

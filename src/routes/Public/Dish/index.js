@@ -5,4 +5,4 @@ const getDish = require("./Get/index.js");
 //getDish SENDS ONE OR MULTIPLE DISHES
 router.use("/dish", getDish );
 
-module.exports.handler = router;
+module.exports = router;

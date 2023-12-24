@@ -7,4 +7,4 @@ const deleteInventory = require("./Delete");
 
 router.use("/inventory",  postInventory, getInventory, putInventory, deleteInventory);
 
-module.exports.handler = router;
+module.exports = router;

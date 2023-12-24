@@ -4,4 +4,4 @@ const getOption = require("./Get");
 
 router.use("/option", getOption);
 
-module.exports.handler = router;
+module.exports = router;

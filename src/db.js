@@ -44,7 +44,7 @@ Reservation.hasOne( Table, { foreignKey:"ticket reserve", as:"ticket reserve" } 
 Diet.belongsToMany( Dish, { through:"dish_diets", timestamps:false } );
 Dish.belongsToMany( Diet, { through:"dish_diets", timestamps:false } );
 
-module.exports.handler = {
+module.exports = {
   ...sequelize.models,
   conn: sequelize,
 };

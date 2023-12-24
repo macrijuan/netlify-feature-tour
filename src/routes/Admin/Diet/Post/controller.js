@@ -13,7 +13,7 @@ async function postDiet(name, description){
     .then(res=>res);
 };
 
-module.exports.handler = {
+module.exports = {
     existingDiet,
     postDiet
 };

@@ -66,7 +66,7 @@ function userOwnerValidator (user, errors){
   if(!errors.user.length)delete errors.user;
 };
 
-module.exports.handler = {
+module.exports = {
   tableValidator,
   customersValidator,
   yearValidator,

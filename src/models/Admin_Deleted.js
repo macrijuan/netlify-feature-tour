@@ -1,7 +1,7 @@
 const { STRING, ENUM, JSON } = require('sequelize');
 const { setUpdatable }=require("../formatter");
 
-module.exports.handler = (sequelize) => {
+module.exports = (sequelize) => {
   sequelize.define('admin_deleted', {
     // id:{
     //   type: UUID,

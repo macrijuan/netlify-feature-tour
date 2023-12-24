@@ -34,4 +34,4 @@ router.put("/update_diet/:id",
 	};
 });
 
-module.exports.handler = router;
+module.exports = router;

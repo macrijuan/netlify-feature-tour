@@ -21,7 +21,7 @@ function sectorValidation(sector, errors){
   if(!errors.sector.length)delete errors.sector;
 };
 
-module.exports.handler={
+module.exports={
   tableNameValidation,
   sitsValidation,
   sectorValidation

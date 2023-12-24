@@ -41,7 +41,7 @@ function classValidator(class_, errors){
   if(!errors.class.length)delete errors.class;
 };
 
-module.exports.handler = {
+module.exports = {
   nameValidator,
   quantityValidator,
   unitValidator,

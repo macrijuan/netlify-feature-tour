@@ -4,4 +4,4 @@ const getTable=require("./Get");
 
 router.use("/table", getTable);
 
-module.exports.handler = router;
+module.exports = router;

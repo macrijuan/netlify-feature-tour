@@ -1,7 +1,7 @@
 const {timeValidator}=require("../models_validations");
 const {STRING, INTEGER, UUID, UUIDV4, TIME, BOOLEAN, DATE, ENUM, DATEONLY, ARRAY, VIRTUAL, INET}=require("sequelize");
 const { yearValidator } = require("../routes/Public/Reservation/validation");
-module.exports.handler = (sequelize)=>{
+module.exports = (sequelize)=>{
   sequelize.define("reservation",{
     ticket:{
       // type:UUID,

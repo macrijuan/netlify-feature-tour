@@ -20,4 +20,4 @@ router.use((req,res,next)=>{
   };
 });
 
-module.exports.handler = router;
+module.exports = router;

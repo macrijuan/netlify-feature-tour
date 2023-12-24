@@ -1,6 +1,6 @@
 const { STRING, BOOLEAN, ARRAY } = require('sequelize');
 const {setValue}=require("../formatter");
-module.exports.handler = (sequelize) => {
+module.exports = (sequelize) => {
   sequelize.define('user', {
     // id:{
     //   type: UUID,

@@ -34,4 +34,4 @@ router.put("/update_inventory/:id",
 	};
 });
 
-module.exports.handler = router;
+module.exports = router;

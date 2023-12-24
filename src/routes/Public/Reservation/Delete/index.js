@@ -26,4 +26,4 @@ router.delete("/delete_reservation/:user/:ticket",
   };
 });
 
-module.exports.handler = router;
+module.exports = router;

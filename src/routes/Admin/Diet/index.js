@@ -7,4 +7,4 @@ const deleteDiet = require("./Delete");
 
 router.use("/diet", getDiet, postDiet, putDiet, deleteDiet);
 
-module.exports.handler = router;
+module.exports = router;

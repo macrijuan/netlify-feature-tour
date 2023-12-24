@@ -48,7 +48,7 @@ async function setAdminAsDeleted(pk, pword){
   };
 };
 
-module.exports.handler = {
+module.exports = {
   setAdminAsDeleted,
   deleteAdmin
 };

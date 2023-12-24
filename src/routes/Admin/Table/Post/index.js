@@ -26,4 +26,4 @@ router.post("/post_table",
   };
 });
 
-module.exports.handler = router;
+module.exports = router;

@@ -1,7 +1,7 @@
 const { JSON, BOOLEAN, STRING } = require("sequelize");
 const {jsonValidator}=require("../models_validations");
 
-module.exports.handler = (sequelize) => {
+module.exports = (sequelize) => {
   sequelize.define('option', {
     model:{
       type:STRING,

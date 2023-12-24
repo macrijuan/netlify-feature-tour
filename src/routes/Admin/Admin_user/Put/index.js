@@ -72,4 +72,4 @@ router.put("/update_admin_status/:id",
 	};
 });
 
-module.exports.handler=router;
+module.exports=router;

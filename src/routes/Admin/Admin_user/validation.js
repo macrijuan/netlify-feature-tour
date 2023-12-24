@@ -56,7 +56,7 @@ function statusValidator(status, errors){
 };
 
 
-module.exports.handler = {
+module.exports = {
   emailValidator,
   passwordValidator,
   namesValidator,

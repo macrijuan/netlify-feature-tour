@@ -29,7 +29,7 @@ async function futureDayResrTimer(reservation, date){
   }, new Date().setHours(24, 0, 0) - Date.now() );
 };
 
-module.exports.handler = {
+module.exports = {
   todayResrTimer,
   futureDayResrTimer
 };

@@ -26,4 +26,4 @@ router.use(async(req, res, next)=>{
   };
 });
 
-module.exports.handler=router;
+module.exports=router;
