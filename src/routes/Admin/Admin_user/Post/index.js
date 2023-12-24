@@ -5,7 +5,7 @@ const existing = require("./Controllers/existing").handler;
 const authorization = require("./Controllers/authorization").handler;
 const {Admin}=require("../../../../db").handler;
 const {unknown, errJSON}=require("../../../error").handler;
-const {dobleSpaceEraser}=require("../../../../formatter");
+const {dobleSpaceEraser}=require("../../../../formatter").handler;
 
 router.post("/post_admin_user/:code",
 (req,res,next)=>{res.locals.auth=req.params.code;next()},
