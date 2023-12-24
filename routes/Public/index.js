@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const router = Router();
 
-router.get("/public", async(req,res)=>{
+router.get("/public", (req,res)=>{
   res.send("This is a public-route");
 });
 
-module.exports.handler = router;
+module.exports = router;
