@@ -9,4 +9,4 @@ router.get('/test', async(req,res)=>{
 
 router.use('/.netlify/functions/index', router);
 
-exports.handler = serverless(app);
+module.exports.handler = serverless(app);
