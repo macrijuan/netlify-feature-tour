@@ -32,7 +32,7 @@
 // server.use('/', routes);
 
 export default async (req, context) => {
-  return new Response("Hello, world!");
+  return new Response({message:"Hello, world!"});
 };
 
 //THIS WORKS https://main--stirring-jalebi-cda26f.netlify.app/.netlify/functions/hello-world
