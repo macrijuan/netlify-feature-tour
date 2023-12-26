@@ -5,11 +5,10 @@ const serverless = require("serverless-http");
 const { conn } = require("../../src/db.js").handler;
 const routes = require("../../src/routes/index.js").handler;
 
-conn.authenticate().then(()=>{
-  // app.use("/.netlify/functions/api", routes);
-  throw new Error('DB connected!');
-}).catch(()=>{
-  throw new Error('DB not connected.');
-});
+app.use("/.netlify/functions/api",
+(req, res, next)=>{
+  conn.authenticate().then(()=>{next();}).catch(()=>{console.log("DB connection failed.");});
+},
+routes);
 
 module.exports.handler = serverless(app);
