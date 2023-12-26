@@ -7,7 +7,7 @@ const routes = require("../../src/routes/index.js").handler;
 
 app.use("/.netlify/functions/api",
 (req, res, next)=>{
-  conn().then(()=>{next();}).catch(()=>{console.log("DB connection failed.");});
+  conn.authenticate().then(()=>{next();}).catch(()=>{console.log("DB connection failed.");});
 },
 routes);
 
