@@ -12,9 +12,7 @@ conn.authenticate().then(()=>{
   router.get("/", async(req,res)=>{res.send("API status: OK")});
   app.use('/.netlify/functions/api', routes);
 }).catch(()=>{
-  router.use('/.netlify/functions/api', (req,res)=>{
-    res.json({errors:{unknown:"Oh, no! There was a problem."}})
-  });
+  throw new Error("DB not connected.");
 });
 
 module.exports.handler = serverless(app);
