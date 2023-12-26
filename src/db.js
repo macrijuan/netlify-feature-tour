@@ -31,5 +31,5 @@ module.exports.handler = {
     };
     sequelize.connectionManager.close().then(()=>sequelize).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
   },
-  models:sequelize.modules
+  models:sequelize ? sequelize.modules : null
 };
