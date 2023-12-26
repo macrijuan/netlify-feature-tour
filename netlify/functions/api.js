@@ -9,12 +9,12 @@ const routes = require("../../src/routes/index.js").handler;
 
 
 conn.authenticate().then(()=>{
-  console.log("hello");
-  router.get("/", async(req,res)=>{res.send("API status: OK")});
+  console.log('hello');
+  router.get("/", (req,res)=>{res.send('API status: OK')});
   app.use('/.netlify/functions/api', routes);
 }).catch(()=>{
-  console.log("bye");
-  throw new Error("DB not connected.");
+  console.log('bye');
+  throw new Error('DB not connected.');
 });
 
 module.exports.handler = serverless(app);
