@@ -14,7 +14,7 @@ module.exports.handler = (sequelize)=>{
       type: INTEGER,
       allowNull:false,
       validate:{
-        yearValidation:function(value){yearValidator( value, {} );}
+        yearValidation:function(value){yearValidator( value );}
       }
     },
     month:{

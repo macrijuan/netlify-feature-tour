@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
-const path = require('path');
+const path = require('node:path');
 const pg = require('pg');
 require("dotenv").config();
 
