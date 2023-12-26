@@ -9,6 +9,7 @@ const { conn } = require("../../src/db.js").handler;
 
 
 conn.authenticate().then(()=>{
+  router.get("/", (req,res)=>{res.send("API status: OK")});
   app.use('/.netlify/functions/api', routes);
 }).catch(()=>{
   router.use((req,res)=>{

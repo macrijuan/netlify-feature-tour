@@ -7,7 +7,7 @@ const {Admin} = require("../db.js").handler;
 // router.use("/administrator", admin);
 
 router.get("/get_modules", (req,res)=>{
-  res.json({data:Admin.tableName});
+  res.json({data:"Admin.tableName"});
 });
 
 module.exports.handler = router
