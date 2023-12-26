@@ -21,10 +21,7 @@ require("dotenv").config();
 //   sequelize.authenticate().then(()=>sequelize).catch(err=>err);
 // };
 
-module.exports.handler = {
-  conn: sequelize,
-  models:sequelize.modules
-};
+module.exports.handler = sequelize;
 
 // async function (action) {
 //   if (!sequelize) {
