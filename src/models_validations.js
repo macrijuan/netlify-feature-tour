@@ -43,7 +43,7 @@ function yearValidator (year){
     typeof year !== "number"
     || isNaN(year)
     || year>new Date().getFullYear()+1
-  ) err("year doesn't have correct format. Check the yearValidator function.");
+  ) err(yearValidator.name, "year doesn't have correct format. Check the yearValidator function.");
 };
 
 module.exports.handler={
