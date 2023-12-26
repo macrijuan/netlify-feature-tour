@@ -39,7 +39,7 @@ module.exports.handler = {
   },
   models: ()=>{
     if(sequelize){
-      console.log("connected");
+      console.log("connected", JSON.stringify(sequelize.models));
       return { ...sequelize.models };
     }else{
       console.log("NOT connected");

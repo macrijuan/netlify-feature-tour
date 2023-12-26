@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { Admin } = require("../db.js");
+const { Admin } = require("../db.js").handler.models;
 
 // const admin = require("./Admin");
 
