@@ -9,7 +9,7 @@ const {Admin} = require("../db.js").handler;
 
 // router.use("/administrator", admin);
 
-router.get("/get_modules", async(req,res)=>{
+router.get("/get_modules", (req,res)=>{
   res.json({data:Admin.tableName});
 });
 
