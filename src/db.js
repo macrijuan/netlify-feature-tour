@@ -4,7 +4,6 @@ require("dotenv").config();
 
 let sequelize = null;
 
-console.log(process.env.DB_USER);
 
 async function loadSequelize() {
   const sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`, {
@@ -22,17 +21,18 @@ async function loadSequelize() {
 };
 
 module.exports.handler = async function (event, callback) {
+  console.log(process.env.DB_USER);
   if (!sequelize) {
     sequelize = await loadSequelize();
   } else {
     sequelize.connectionManager.initPools();
     if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
       delete sequelize.connectionManager.getConnection;
-    }
-  }
+    };
+  };
   try {
     return await doSomethingWithSequelize(sequelize);
   } finally {
     await sequelize.connectionManager.close();
-  }
+  };
 };
