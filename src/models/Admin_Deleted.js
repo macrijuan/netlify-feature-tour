@@ -1,5 +1,4 @@
-const { STRING, ENUM, JSON } = require('sequelize');
-const { setUpdatable }=require("../formatter");
+const { STRING, ENUM } = require('sequelize');
 
 module.exports.handler = (sequelize) => {
   sequelize.define('admin_deleted', {
@@ -16,6 +15,9 @@ module.exports.handler = (sequelize) => {
       validate:{
         isEmail:true,
         len:[7,254]
+      },
+      set(value){
+        this.setDataValue("email", value.toLowerCase());
       }
     },
     password:{
@@ -29,7 +31,10 @@ module.exports.handler = (sequelize) => {
       type: STRING,
       allowNull: false,
       set(value){
-        this.setDataValue("first_name", value.toUpperCase());
+        this.setDataValue("first_name", value.toLowerCase());
+      },
+      get(){
+        return this.getDataValue("first_name").toUpperCase()
       },
       validate:{
         len:[2,35]
@@ -39,7 +44,10 @@ module.exports.handler = (sequelize) => {
       type:STRING,
       allowNull: false,
       set(value){
-        this.setDataValue("last_name", value.toUpperCase());
+        this.setDataValue("last_name", value.toLowerCase());
+      },
+      get(){
+        return this.getDataValue("last_name").toUpperCase();
       },
       validate:{
         len:[2,35]
@@ -49,13 +57,6 @@ module.exports.handler = (sequelize) => {
       type:ENUM("active", "suspended", "quitted", "fired"),
       allowNull:false,
       defaultValue:"active"
-    },
-    updatable:{
-      type:JSON,
-      defaultValue: {"status":["active", "suspended", "quitted", "fired"]},
-      set(value){
-        this.setDataValue("updatable", setUpdatable(value, this.rawAttributes.updatable.defaultValue));
-      }
     }
   },{
     timestamps:false

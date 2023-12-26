@@ -1,5 +1,5 @@
 const { STRING, INTEGER, ENUM, JSON, BOOLEAN } = require('sequelize');
-const { arrRemover, setValue } = require('../formatter');
+const { arrRemover, setValue } = require('../formatter').handler.handler;
 
 module.exports.handler = (sequelize) => {
   sequelize.define('inventory', {

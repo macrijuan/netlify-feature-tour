@@ -37,10 +37,19 @@ function jsonValidator(json, keys, values){
 	});
 };
 
-
+function yearValidator (year, errors){
+  errors.year = [];
+  if(
+    typeof year !== "number"
+    || isNaN(year)
+    || year>new Date().getFullYear()+1
+  ) errors.year.push(isMandatory("year"));
+  if(!errors.year.length)delete errors.year;
+};
 
 module.exports.handler={
 	arrayValidator,
 	dateValidatror,
-	jsonValidator
+	jsonValidator,
+	yearValidator
 };

@@ -1,6 +1,6 @@
-const {timeValidator}=require("../models_validations");
+const {timeValidator}=require("../models_validations").handler;
 const {STRING, INTEGER, UUID, UUIDV4, TIME, BOOLEAN, DATE, ENUM, DATEONLY, ARRAY, VIRTUAL, INET}=require("sequelize");
-const { yearValidator } = require("../routes/Public/Reservation/validation").handler;
+const { yearValidator } = require("../models_validations").handler;
 module.exports.handler = (sequelize)=>{
   sequelize.define("reservation",{
     ticket:{

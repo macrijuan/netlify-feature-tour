@@ -1,5 +1,5 @@
 const { STRING, BOOLEAN, ARRAY } = require('sequelize');
-const {setValue}=require("../formatter");
+const {setValue}=require("../formatter").handler;
 module.exports.handler = (sequelize) => {
   sequelize.define('user', {
     // id:{
