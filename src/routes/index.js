@@ -9,7 +9,7 @@ const admin  = require("../models/Admin.js").handler;
 router.get("/", (req,res)=>{res.send('API status: OK')});
 
 router.get("/get_modules", (req,res)=>{
-  console.log("models:", models);
+  console.log("admin:", admin);
   res.json({data:admin});
 });
 
