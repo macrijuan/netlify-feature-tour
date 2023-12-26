@@ -21,17 +21,13 @@ async function loadSequelize() {
 };
 
 module.exports.handler = async function () {
-  try{
-    if (!sequelize) {
-      sequelize = await loadSequelize();
-    } else {
-      sequelize.connectionManager.initPools();
-      if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
-        delete sequelize.connectionManager.getConnection;
-      };
+  if (!sequelize) {
+    sequelize = await loadSequelize();
+  } else {
+    sequelize.connectionManager.initPools();
+    if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
+      delete sequelize.connectionManager.getConnection;
     };
-    await sequelize.connectionManager.close().then(()=>sequelize).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
-  }catch(err){
-    console.log(err); return "Failed to connect";
   };
+  sequelize.connectionManager.close().then(()=>sequelize).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
 };
