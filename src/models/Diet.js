@@ -1,5 +1,4 @@
-const { STRING, JSON, BOOLEAN } = require('sequelize');
-const { setValue }=require("../formatter").handler;
+const { STRING } = require('sequelize');
 
 module.exports.handler = (sequelize) => {
   sequelize.define('diet', {

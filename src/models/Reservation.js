@@ -1,5 +1,4 @@
-const {timeValidator}=require("../models_validations").handler;
-const {STRING, INTEGER, UUID, UUIDV4, TIME, BOOLEAN, DATE, ENUM, DATEONLY, ARRAY, VIRTUAL, INET}=require("sequelize");
+const { INTEGER, TIME, BOOLEAN }=require("sequelize");
 const { yearValidator } = require("../models_validations").handler;
 module.exports.handler = (sequelize)=>{
   sequelize.define("reservation",{
@@ -13,7 +12,10 @@ module.exports.handler = (sequelize)=>{
     },
     year:{
       type: INTEGER,
-      allowNull:false
+      allowNull:false,
+      validate:{
+        yearValidation:function(value){yearValidator( value, {} );}
+      }
     },
     month:{
       type: INTEGER,

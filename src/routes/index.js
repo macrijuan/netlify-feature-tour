@@ -2,10 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const {Admin} = require("../db.js").handler;
 
-
-
 // const admin = require("./Admin");
-
 
 // router.use("/administrator", admin);
 

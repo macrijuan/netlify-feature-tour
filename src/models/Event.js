@@ -1,4 +1,4 @@
-const { STRING, INTEGER, TIME, DATEONLY, DATE, UUID, UUIDV4 } = require("sequelize");
+const { STRING, INTEGER, TIME, DATEONLY, DATE } = require("sequelize");
 module.exports.handler = sequelize=>{
   sequelize.define("event", {
     name:{

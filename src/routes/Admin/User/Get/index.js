@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const { User } = require("../../../../db").handler;
-const {notFound, unknown} = require("../../../error.js").handler.handler;
+const {notFound, unknown} = require("../../../error.js").handler;
 const { setUpdatables }=require("../../../routeFormatter").handler;
 
 router.get("/user/get_users", async(req,res)=>{

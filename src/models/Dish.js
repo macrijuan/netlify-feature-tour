@@ -1,6 +1,6 @@
-const { STRING, ARRAY, BOOLEAN, TEXT, INTEGER, ENUM, JSON } = require('sequelize');
+const { STRING, ARRAY, BOOLEAN, TEXT, INTEGER, ENUM } = require('sequelize');
 const {arrayValidator} = require("../models_validations").handler;
-const { dobleSpaceEraser, setValue }=require("../formatter").handler;
+const { dobleSpaceEraser }=require("../formatter").handler;
 
 module.exports.handler = (sequelize) => {
   sequelize.define('dish', {
