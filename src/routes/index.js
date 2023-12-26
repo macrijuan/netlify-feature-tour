@@ -9,7 +9,7 @@ const { Admin } = require("../db.js");
 router.get("/", (req,res)=>{res.send('API status: OK')});
 
 router.get("/get_modules", (req,res)=>{
-  res.json({data:Admin.tableName});
+  res.json({data:Admin});
 });
 
 module.exports.handler = router
