@@ -3,16 +3,16 @@ const app = express();
 const router = express.Router();
 const serverless = require("serverless-http");
 
-const routes = require("../../src/routes/index.js").handler;
 const { conn } = require("../../src/db.js").handler;
+const routes = require("../../src/routes/index.js").handler;
 
 
 
 conn.authenticate().then(()=>{
-  router.get("/", (req,res)=>{res.send("API status: OK")});
+  router.get("/", async(req,res)=>{res.send("API status: OK")});
   app.use('/.netlify/functions/api', routes);
 }).catch(()=>{
-  router.use((req,res)=>{
+  router.use('/.netlify/functions/api', (req,res)=>{
     res.json({errors:{unknown:"Oh, no! There was a problem."}})
   });
 });
