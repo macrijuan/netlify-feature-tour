@@ -17,33 +17,21 @@ async function loadSequelize() {
       evict: process.env.CURRENT_LAMBDA_FUNCTION_TIMEOUT
     }
   });
-  await sequelize.authenticate();
-  return sequelize;
+  (await sequelize.authenticate().then(()=>sequelize)).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
 };
 
-module.exports.handler = {
-  conn: async function (event, callback) {
-    try{
-      if (!sequelize) {
-        sequelize = await loadSequelize();
-      } else {
-        sequelize.connectionManager.initPools();
-        if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
-          delete sequelize.connectionManager.getConnection;
-        };
+module.exports.handler = async function () {
+  try{
+    if (!sequelize) {
+      sequelize = await loadSequelize();
+    } else {
+      sequelize.connectionManager.initPools();
+      if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
+        delete sequelize.connectionManager.getConnection;
       };
-      await sequelize.connectionManager.close();
-    }catch(err){
-      console.log(err); return "Failed to connect";
     };
-  },
-  models: ()=>{
-    if(sequelize){
-      console.log("connected", JSON.stringify(sequelize.models));
-      return { ...sequelize.models };
-    }else{
-      console.log("NOT connected");
-      return undefined;
-    }
-  }
+    await sequelize.connectionManager.close().then(()=>sequelize).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
+  }catch(err){
+    console.log(err); return "Failed to connect";
+  };
 };
