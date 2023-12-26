@@ -20,14 +20,17 @@ async function loadSequelize() {
   (await sequelize.authenticate().then(()=>sequelize)).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
 };
 
-module.exports.handler = async function () {
-  if (!sequelize) {
-    sequelize = await loadSequelize();
-  } else {
-    sequelize.connectionManager.initPools();
-    if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
-      delete sequelize.connectionManager.getConnection;
+module.exports.handler = {
+  conn: async function (action) {
+    if (!sequelize) {
+      sequelize = loadSequelize().then(res=>res);
+    } else {
+      sequelize.connectionManager.initPools();
+      if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
+        delete sequelize.connectionManager.getConnection;
+      };
     };
-  };
-  sequelize.connectionManager.close().then(()=>sequelize).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
+    sequelize.connectionManager.close().then(()=>sequelize).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
+  },
+  models:sequelize.modules
 };
