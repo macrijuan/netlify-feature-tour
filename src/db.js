@@ -8,6 +8,8 @@ require("dotenv").config();
 // async function loadSequelize() {
   const sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`, {
     dialectModule: pg,
+    logging: false,
+    native:false,
     pool: {
       max: 2,
       min: 0,
