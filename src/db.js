@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
 const pg = require('pg');
-const { READCOMMITTED } = require('sequelize/types/table-hints');
 require("dotenv").config();
 
 let sequelize = null;
