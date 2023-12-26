@@ -1,5 +1,6 @@
 const { Sequelize } = require('sequelize');
 const pg = require('pg');
+const { READCOMMITTED } = require('sequelize/types/table-hints');
 require("dotenv").config();
 
 let sequelize = null;
@@ -20,18 +21,29 @@ async function loadSequelize() {
   return sequelize;
 };
 
-module.exports.handler = async function (event, callback) {
-  try{
-    if (!sequelize) {
-      sequelize = await loadSequelize();
-    } else {
-      sequelize.connectionManager.initPools();
-      if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
-        delete sequelize.connectionManager.getConnection;
+module.exports.handler = {
+  conn: async function (event, callback) {
+    try{
+      if (!sequelize) {
+        sequelize = await loadSequelize();
+      } else {
+        sequelize.connectionManager.initPools();
+        if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
+          delete sequelize.connectionManager.getConnection;
+        };
       };
+      await sequelize.connectionManager.close();
+    }catch(err){
+      console.log(err); return "Failed to connect";
     };
-    await sequelize.connectionManager.close();
-  }catch(err){
-    console.log(err); return "Failed to connect";
-  };
+  },
+  models: ()=>{
+    if(sequelize){
+      console.log("connected");
+      return { ...sequelize.models };
+    }else{
+      console.log("NOT connected");
+      return undefined;
+    }
+  }
 };
