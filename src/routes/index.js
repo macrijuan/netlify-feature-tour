@@ -1,12 +1,9 @@
 const { Router } = require('express');
 const router = Router();
-const { Admin } = require("../db.js").handler;
+const administrator = require("./Admin");
 
 router.get("/", (req,res)=>{res.send('API status: OK')});
 
-router.get("/get_model", async(req,res)=>{
-  Admin.findAll().then(admins=>res.json({data: admins}));
-  
-});
+router.use("/administrator", );
 
 module.exports.handler = router;
