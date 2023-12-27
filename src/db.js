@@ -20,7 +20,7 @@ require("dotenv").config();
   });
 //   sequelize.authenticate().then(()=>sequelize).catch(err=>err);
 // };
-console.log( "db", sequelize );
+// console.log( "db", sequelize );
 
 module.exports.handler = sequelize;
 
