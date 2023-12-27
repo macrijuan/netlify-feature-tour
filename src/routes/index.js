@@ -10,8 +10,7 @@ const admin = require('../models/Admin.js').handler;
 router.get("/", (req,res)=>{res.send('API status: OK')});
 
 router.get("/get_model", (req,res)=>{
-  console.log("admin:", admin(sequelize));
-  res.json({data:admin(conn)});
+  res.json({data:sequelize});
 });
 
 module.exports.handler = router
