@@ -40,7 +40,7 @@ let capsEntries = entries.map((entry) => {
 });
 sequelize.models = Object.fromEntries(capsEntries);
 
-module.exports.handler = sequelize;
+module.exports.handler = { conn: sequelize, ...sequelize.models };
 
 
 

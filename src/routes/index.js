@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const sequelize = require("../db.js").handler;
-const admin = require('../models/Admin.js').handler;
+const { Admin } = require("../db.js");
 
 // const admin = require("./Admin");
 
@@ -10,7 +9,7 @@ const admin = require('../models/Admin.js').handler;
 router.get("/", (req,res)=>{res.send('API status: OK')});
 
 router.get("/get_model", (req,res)=>{
-  res.json({data:admin(sequelize)});
+  res.json({data:Admin.name});
 });
 
 module.exports.handler = router
