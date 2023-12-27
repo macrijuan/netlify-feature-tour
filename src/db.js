@@ -21,26 +21,27 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-fs
-.readdir(path.join(__dirname, '/models'))
-.filter((file) => (
-  file.indexOf('.') !== 0) &&
-  (file !== basename) &&
-  (file.slice(-3) === '.js')
-).forEach((file) => {
-  modelDefiners.push(require(path.join(__dirname, '/models', file)).handler);
-});
+fs.readdir((files=path.join(__dirname, '/models'))=>{
+  files.filter((file) => (
+    file.indexOf('.') !== 0) &&
+    (file !== basename) &&
+    (file.slice(-3) === '.js')
+  ).forEach((file) => {
+    modelDefiners.push(require(path.join(__dirname, '/models', file)).handler);
+  });
+}).then(()=>{
 
-modelDefiners.forEach(model => model(sequelize));
-
-let entries = Object.entries(sequelize.models);
-let capsEntries = entries.map((entry) => {
-  // console.log(entry); 
-  return [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]
-});
-sequelize.models = Object.fromEntries(capsEntries);
-
-module.exports.handler = { conn: sequelize, ...sequelize.models };
+  modelDefiners.forEach(model => model(sequelize));
+  
+  let entries = Object.entries(sequelize.models);
+  let capsEntries = entries.map((entry) => {
+    // console.log(entry); 
+    return [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]
+  });
+  sequelize.models = Object.fromEntries(capsEntries);
+  
+  module.exports.handler = { conn: sequelize, models: sequelize.models };
+})
 
 
 
