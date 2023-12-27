@@ -21,7 +21,7 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-fs.readdir( path.join(__dirname, '/models'), (err,files)=>{
+fs.promise.readdir( path.join(__dirname, '/models'), ((err,files)=>{
   files.filter((file) => (
     file.indexOf('.') !== 0) &&
     (file !== basename) &&
@@ -41,7 +41,7 @@ fs.readdir( path.join(__dirname, '/models'), (err,files)=>{
   sequelize.models = Object.fromEntries(capsEntries);
   
   module.exports.handler = { conn: sequelize, models: sequelize.models };
-})
+}))
 
 
 
