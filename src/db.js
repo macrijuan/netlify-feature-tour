@@ -21,8 +21,8 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
-console.log(basename);
-console.log(__dirname);
+console.log("basename", basename);
+console.log("__dirname", __dirname);
 
 fs.readdirSync(path.join(__dirname, '/models'))
 .filter((file) => (
@@ -30,7 +30,7 @@ fs.readdirSync(path.join(__dirname, '/models'))
   (file !== basename) &&
   (file.slice(-3) === '.js')
 ).forEach((file) => {
-  modelDefiners.push(require(path.join(__dirname, '/models', file)).handler);
+  modelDefiners.push(require(path.join(__dirname,'/models')).handler);
 });
 
 modelDefiners.forEach(model => model(sequelize));
