@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 require("dotenv").config();
 
-const sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`, {
+let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`, {
   dialectModule: pg,
   logging: false,
   native:false,
@@ -17,12 +17,12 @@ const sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env
   }
 });
 
+console.log("__filename",__filename);
+console.log("__dirname",__dirname);
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
-
-console.log("__filename",__filename);
-console.log("__dirname",__dirname);
 
 fs
 .readdirSync(path.join(__dirname, '/models'))
