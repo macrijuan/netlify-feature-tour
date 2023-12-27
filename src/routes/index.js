@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const sequelize = require("sequelize");
+const sequelize = require("../db.js").handler;
 const admin = require('../models/Admin.js').handler;
 
 // const admin = require("./Admin");
