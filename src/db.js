@@ -17,7 +17,7 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
   }
 });
 
-console.log(Object.keys(sequelize).filter)
+console.log(sequelize);
 
 // const basename = path.basename(__filename);
 
