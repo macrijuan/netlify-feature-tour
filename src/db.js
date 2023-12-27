@@ -21,7 +21,7 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-fs.readdir((files=path.join(__dirname, '/models'))=>{
+fs.readdir( path.join(__dirname, '/models'), (err,files)=>{
   files.filter((file) => (
     file.indexOf('.') !== 0) &&
     (file !== basename) &&
