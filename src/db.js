@@ -27,17 +27,16 @@ let Reservation = require("./models/Reservation.js").handler
 let Table = require("./models/Table.js").handler
 let User = require("./models/User.js").handler
 
-console.log(sequelize);
 
 module.exports.handler = { 
   conn: sequelize,
   // Admin_deleted: Admin_deleted,
-  Admin,
-  Diet,
-  Dish,
-  Inventory,
-  Option,
-  Reservation,
-  Table,
-  User
+  Admin: Admin(sequelize),
+  Diet: Diet(sequelize),
+  Dish: Dish(sequelize),
+  Inventory: Inventory(sequelize),
+  Option: Option(sequelize),
+  Reservation: Reservation(sequelize),
+  Table: Table(sequelize),
+  User: User(sequelize)
 };
