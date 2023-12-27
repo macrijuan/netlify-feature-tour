@@ -9,7 +9,6 @@ const reservation = require("./Reservation").handler;
 const table = require("./Table").handler;
 const option = require("./Option").handler;
 
-// async( req, res, next) =>{ setTimeout(()=>{ next() }, 1000); }, 
 router.use( user, dish, diet, admin, inventory, reservation, table, option );
 
 module.exports.handler=router;

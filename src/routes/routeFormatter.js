@@ -1,6 +1,6 @@
+const { Op }=require("sequelize");
+const { Option }=require("../db").handler;
 const { errJSON, notFound, unknown } = require("./error").handler;
-const {Option}=require("../db").handler;
-const {Op}=require("sequelize");
 
 async function setOptions(data, model){
   if(typeof data === "object" && !Array.isArray(data)){
