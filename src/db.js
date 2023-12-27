@@ -23,43 +23,28 @@ const basename = path.basename(__filename);
 const modelDefiners = [];
 
 
-fs
-.readdirSync(path.join(__dirname, '/models'))
-.filter((file) => (
+fs.readdirSync(path.join(__dirname, '/models')).filter((file) => (
   file.indexOf('.') !== 0) &&
   (file !== basename) &&
   (file.slice(-3) === '.js')
-)
-.forEach((file) => {
+).forEach((file) => {
   modelDefiners.push(require(path.join(__dirname, '/models', file)).handler);
 });
 
-modelDefiners.forEach(model => {console.log(model(sequelize)); return model(sequelize)});
+modelDefiners.forEach(model => model(sequelize));
 
 let entries = Object.entries(sequelize.models);
+
 let capsEntries = entries.map((entry) => {
   return [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]
 });
+
 sequelize.models = Object.fromEntries(capsEntries);
 
 console.log(sequelize);
 
-const admin = require("./models/Admin.js").handler
+// const admin = require("./models/Admin.js").handler
 
 module.exports.handler = { 
   conn: sequelize,
-  Admin: admin(sequelize)
 };
-
-
-// async function (action) {
-//   if (!sequelize) {
-//     sequelize = loadSequelize().then(res=>res);
-//   } else {
-//     sequelize.connectionManager.initPools();
-//     if (sequelize.connectionManager.hasOwnProperty("getConnection")) {
-//       delete sequelize.connectionManager.getConnection;
-//     };
-//   };
-//   sequelize.connectionManager.close().then(()=>sequelize).catch((err)=>{console.log(err); throw new Error("Failed to connect to the DB");});
-// }
