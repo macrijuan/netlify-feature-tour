@@ -40,7 +40,10 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
 // });
 // sequelize.models = Object.fromEntries(capsEntries);
 
-module.exports.handler = { conn: sequelize };
+module.exports.handler = { 
+  conn: sequelize,
+  Admin: require("./models/Admin").handler(sequelize)
+};
 
 
 // async function (action) {
