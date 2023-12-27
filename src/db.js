@@ -17,6 +17,8 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
   }
 });
 
+console.log(Object.keys(sequelize).filter)
+
 // const basename = path.basename(__filename);
 
 // const modelDefiners = [];
@@ -42,7 +44,7 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
 
 module.exports.handler = { 
   conn: sequelize,
-  Admin: require("./models/Admin").handler(sequelize)
+  Admin: require("./models/Admin.js").handler(sequelize)
 };
 
 
