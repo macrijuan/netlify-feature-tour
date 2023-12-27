@@ -44,13 +44,6 @@ let capsEntries = entries.map((entry) => {
 sequelize.models = Object.fromEntries(capsEntries);
 
 
-console.log(sequelize);
-
-module.exports.handler = { 
-  conn: sequelize,
-};
-
-
 // const Admin_deleted = require("./models/Admin_deleted.js").handler
 // const Admin = require("./models/Admin.js").handler
 // const Diet = require("./models/Diet.js").handler
@@ -61,13 +54,17 @@ module.exports.handler = {
 // const Table = require("./models/Table.js").handler
 // const User = require("./models/User.js").handler
 
-// Admin_deleted,
-// Admin,
-// Diet,
-// Dish,
-// Inventory,
-// Option,
-// Option,
-// Reservation,
-// Table,
-// User
+console.log(sequelize);
+
+module.exports.handler = { 
+  conn: sequelize,
+  Admin_deleted: require("./models/Admin_deleted.js").handler,
+  Admin: require("./models/Admin.js").handler,
+  Diet: require("./models/Diet.js").handler,
+  Dish: require("./models/Dish.js").handler,
+  Inventory: require("./models/Inventory.js").handler,
+  Option: require("./models/Option.js").handler,
+  Reservation: require("./models/Reservation.js").handler,
+  Table: require("./models/Table.js").handler,
+  User: require("./models/User.js").handler
+};
