@@ -31,7 +31,7 @@ fs
   modelDefiners.push(require(path.join(__dirname, '/models', file)));
 });
 
-modelDefiners.forEach(model => model(sequelize));
+modelDefiners.forEach(model => {console.log(model); return model(sequelize)});
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => {
