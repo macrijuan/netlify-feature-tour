@@ -22,7 +22,7 @@ const basename = path.basename(__filename);
 const modelDefiners = [];
 
 fs
-.readdir(path.join(__dirname, '/models'))
+.readdirSync(path.join(__dirname, '/models'))
 .filter((file) => (
   file.indexOf('.') !== 0) &&
   (file !== basename) &&
