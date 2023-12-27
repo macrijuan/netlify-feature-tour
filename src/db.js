@@ -28,10 +28,10 @@ fs
   (file !== basename) &&
   (file.slice(-3) === '.js')
 ).forEach((file) => {
-  modelDefiners.push(require(path.join(__dirname, '/models', file)));
+  modelDefiners.push(require(path.join(__dirname, '/models', file)).handler);
 });
 
-modelDefiners.forEach(model => {console.log(model); return model(sequelize)});
+modelDefiners.forEach(model => model(sequelize));
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => {
