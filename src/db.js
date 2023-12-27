@@ -32,7 +32,7 @@ console.log(sequelize);
 
 module.exports.handler = { 
   conn: sequelize,
-  Admin_deleted,
+  Admin_deleted: Admin_deleted,
   Admin,
   Diet,
   Dish,
