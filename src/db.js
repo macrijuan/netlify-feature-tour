@@ -21,7 +21,7 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-fs.promise.readdir( path.join(__dirname, '/models'), ((err,files)=>{
+fs.readdir( path.join(__dirname, '/models'), ((err,files)=>{
   files.filter((file) => (
     file.indexOf('.') !== 0) &&
     (file !== basename) &&
