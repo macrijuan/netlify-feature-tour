@@ -17,7 +17,7 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
   }
 });
 
-let Admin_deleted = require("./models/AdminDeleted.js").handler
+// let Admin_deleted = require("./models/AdminDeleted.js").handler
 let Admin = require("./models/Admin.js").handler
 let Diet = require("./models/Diet.js").handler
 let Dish = require("./models/Dish.js").handler
@@ -31,7 +31,7 @@ console.log(sequelize);
 
 module.exports.handler = { 
   conn: sequelize,
-  Admin_deleted: Admin_deleted,
+  // Admin_deleted: Admin_deleted,
   Admin,
   Diet,
   Dish,

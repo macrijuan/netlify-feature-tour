@@ -5,7 +5,7 @@ const { Admin } = require("../db.js").handler;
 router.get("/", (req,res)=>{res.send('API status: OK')});
 
 router.get("/get_model", (req,res)=>{
-  res.json({name:Admin.tableName});
+  res.json({name:Admin.name});
 });
 
 module.exports.handler = router;
