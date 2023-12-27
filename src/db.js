@@ -24,7 +24,7 @@ const modelDefiners = [];
 console.log("basename", basename);
 console.log("__dirname", __dirname);
 
-fs.readdirSync(path.join(__dirname, '/models'))
+fs.readdirSync('./models')
 .filter((file) => (
   file.indexOf('.') !== 0) &&
   (file !== basename) &&
