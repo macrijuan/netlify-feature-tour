@@ -1,7 +1,7 @@
 const { STRING, ENUM } = require('sequelize');
 
 module.exports.handler = (sequelize) => {
-  sequelize.define('admin', {
+  return sequelize.define('admin', {
     // id:{
     //   type: UUID,
     //   primaryKey:true,
