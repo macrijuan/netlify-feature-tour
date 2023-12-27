@@ -1,6 +1,7 @@
 const { STRING, ENUM } = require('sequelize');
 
 module.exports.handler = (sequelize) => {
+  console.log( "model", sequelize);
   sequelize.define('admin', {
     // id:{
     //   type: UUID,
