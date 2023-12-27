@@ -21,6 +21,8 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
+console.log(__filename);
+
 fs
 .readdirSync(path.join(__dirname, '/models'))
 .filter((file) => (
