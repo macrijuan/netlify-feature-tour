@@ -1,7 +1,7 @@
 const { INTEGER, STRING, ENUM } = require("sequelize");
 
 module.exports.handler = (sequelize)=>{
-  sequelize.define("table",{
+  return sequelize.define("table",{
     name:{
       type:STRING,
       unique:true,

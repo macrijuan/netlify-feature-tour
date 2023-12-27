@@ -1,7 +1,7 @@
 const { STRING, INTEGER, ENUM } = require('sequelize');
 
 module.exports.handler = (sequelize) => {
-  sequelize.define('inventory', {
+  return sequelize.define('inventory', {
     // id:{
     //   type: UUID,
     //   primaryKey:true,

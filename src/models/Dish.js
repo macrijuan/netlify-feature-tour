@@ -3,7 +3,7 @@ const {arrayValidator} = require("../models_validations").handler;
 const { dobleSpaceEraser }=require("../formatter").handler;
 
 module.exports.handler = (sequelize) => {
-  sequelize.define('dish', {
+  return sequelize.define('dish', {
     // id:{
     //   type: UUID,
     //   primaryKey:true,

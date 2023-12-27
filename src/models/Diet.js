@@ -1,7 +1,7 @@
 const { STRING } = require('sequelize');
 
 module.exports.handler = (sequelize) => {
-  sequelize.define('diet', {
+  return sequelize.define('diet', {
     // id:{
     //   type: UUID,
     //   primaryKey:true,

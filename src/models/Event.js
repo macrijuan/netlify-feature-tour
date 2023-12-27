@@ -1,6 +1,6 @@
 const { STRING, INTEGER, TIME, DATEONLY, DATE } = require("sequelize");
 module.exports = sequelize=>{
-  sequelize.define("event", {
+  return sequelize.define("event", {
     name:{
       type:STRING
     },

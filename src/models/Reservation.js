@@ -1,7 +1,7 @@
 const {INTEGER, TIME, BOOLEAN,}=require("sequelize");
 const { yearValidator } = require("../models_validations").handler;
 module.exports.handler = (sequelize)=>{
-  sequelize.define("reservation",{
+  return sequelize.define("reservation",{
     ticket:{
       // type:UUID,
       type:INTEGER,

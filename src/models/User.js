@@ -1,7 +1,7 @@
 const { STRING, BOOLEAN } = require('sequelize');
 
 module.exports.handler = (sequelize) => {
-  sequelize.define('user', {
+  return sequelize.define('user', {
     // id:{
     //   type: UUID,
     //   primaryKey:true,
