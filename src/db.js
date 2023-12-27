@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 const pg = require('pg');
-const fs = require("fs");
-const path = require("path");
+// const fs = require("fs");
+// const path = require("path");
 require("dotenv").config();
 
 let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`, {
@@ -17,32 +17,30 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
   }
 });
 
-const basename = path.basename(__filename);
+// const basename = path.basename(__filename);
 
-const modelDefiners = [];
+// const modelDefiners = [];
 
-fs.readdir( path.join(__dirname, '/models'), ((err,files)=>{
-  files.filter((file) => (
-    file.indexOf('.') !== 0) &&
-    (file !== basename) &&
-    (file.slice(-3) === '.js')
-  ).forEach((file) => {
-    modelDefiners.push(require(path.join(__dirname, '/models', file)).handler);
-  });
-}).then(()=>{
+// fs
+// .readdirSync(path.join(__dirname, '/models'))
+// .filter((file) => (
+//   file.indexOf('.') !== 0) &&
+//   (file !== basename) &&
+//   (file.slice(-3) === '.js')
+// )
+// .forEach((file) => {
+//   modelDefiners.push(require(path.join(__dirname, '/models', file)));
+// });
 
-  modelDefiners.forEach(model => model(sequelize));
-  
-  let entries = Object.entries(sequelize.models);
-  let capsEntries = entries.map((entry) => {
-    // console.log(entry); 
-    return [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]
-  });
-  sequelize.models = Object.fromEntries(capsEntries);
-  
-  module.exports.handler = { conn: sequelize, models: sequelize.models };
-}))
+// modelDefiners.forEach(model => {console.log(model(sequelize)); return model(sequelize)});
 
+// let entries = Object.entries(sequelize.models);
+// let capsEntries = entries.map((entry) => {
+//   return [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]
+// });
+// sequelize.models = Object.fromEntries(capsEntries);
+
+module.exports.handler = { conn: sequelize };
 
 
 // async function (action) {
