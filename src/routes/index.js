@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const sequelize = require("sequelize");
-const admin = sequelize.import('../models/Admin.js');
+const admin = sequelize.import('admin', '../models/Admin.js');
 
 // const admin = require("./Admin");
 
