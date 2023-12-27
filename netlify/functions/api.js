@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const serverless = require("serverless-http");
 
-const conn = require("../../src/db.js").handler;
+const { conn } = require("../../src/db.js").handler;
 const routes = require("../../src/routes/index.js").handler;
 
 app.use("/.netlify/functions/api",
