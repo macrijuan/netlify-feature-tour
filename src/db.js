@@ -21,7 +21,8 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
-
+console.log(basename);
+console.log(__dirname);
 
 fs.readdirSync(path.join(__dirname, '/models'))
 .filter((file) => (
