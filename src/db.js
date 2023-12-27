@@ -18,41 +18,15 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
 });
 
 
-const basename = path.basename(__filename);
-
-const modelDefiners = [];
-console.log("basename", basename);
-console.log("__dirname", __dirname);
-
-fs.readdirSync('./models')
-.filter((file) => (
-  file.indexOf('.') !== 0) &&
-  (file !== basename) &&
-  (file.slice(-3) === '.js')
-).forEach((file) => {
-  modelDefiners.push(require(path.join(__dirname,'/models')).handler, file);
-});
-
-modelDefiners.forEach(model => model(sequelize));
-
-let entries = Object.entries(sequelize.models);
-
-let capsEntries = entries.map((entry) => {
-  return [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]
-});
-
-sequelize.models = Object.fromEntries(capsEntries);
-
-
-const Admin_deleted = require("./models/Admin_deleted.js").handler
-const Admin = require("./models/Admin.js").handler
-const Diet = require("./models/Diet.js").handler
-const Dish = require("./models/Dish.js").handler
-const Inventory = require("./models/Inventory.js").handler
-const Option = require("./models/Option.js").handler
-const Reservation = require("./models/Reservation.js").handler
-const Table = require("./models/Table.js").handler
-const User = require("./models/User.js").handler
+let Admin_deleted = require("./models/Admin_deleted.js").handler
+let Admin = require("./models/Admin.js").handler
+let Diet = require("./models/Diet.js").handler
+let Dish = require("./models/Dish.js").handler
+let Inventory = require("./models/Inventory.js").handler
+let Option = require("./models/Option.js").handler
+let Reservation = require("./models/Reservation.js").handler
+let Table = require("./models/Table.js").handler
+let User = require("./models/User.js").handler
 
 console.log(sequelize);
 
