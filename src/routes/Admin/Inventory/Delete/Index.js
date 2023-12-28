@@ -1,4 +1,4 @@
-const { Router }=require("express");
+const { Router } = require("express");
 const router = Router();
 const { Inventory }=require("../../../../db.js").handler;
 const { getMany }=require("../../../routeFormatter.js").handler;
