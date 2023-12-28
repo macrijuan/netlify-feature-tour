@@ -1,7 +1,7 @@
 const{Router}=require("express");
 const router = Router();
 const format = require("./Controller/format").handler;
-const statusFormat = require("./Controller/status_data");
+const statusFormat = require("./Controller/status_data").handler;
 const existing = require("./Controller/existing").handler;
 const{Admin}=require("../../../../db").handler;
 const {Op}=require("sequelize");
