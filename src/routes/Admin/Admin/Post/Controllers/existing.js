@@ -1,5 +1,5 @@
+const { Router }=require("express");
 const router = Router();
-const {Router}=require("express");
 const {Admin} = require("../../../../../db").handler;
 const {existing} = require("../../../../error").handler;
 
