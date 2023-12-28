@@ -17,26 +17,43 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
   }
 });
 
-let Admin_deleted = require("./models/AdminDeleted.js").handler
-let Admin = require("./models/Admin.js").handler
-let Diet = require("./models/Diet.js").handler
-let Dish = require("./models/Dish.js").handler
-let Inventory = require("./models/Inventory.js").handler
-let Option = require("./models/Option.js").handler
-let Reservation = require("./models/Reservation.js").handler
-let Table = require("./models/Table.js").handler
-let User = require("./models/User.js").handler
+let Admin_deleted = require("./models/AdminDeleted.js").handler(sequelize);
+let Admin = require("./models/Admin.js").handler(sequelize);
+let Diet = require("./models/Diet.js").handler(sequelize);
+let Dish = require("./models/Dish.js").handler(sequelize);
+let Inventory = require("./models/Inventory.js").handler(sequelize);
+let Option = require("./models/Option.js").handler(sequelize);
+let Reservation = require("./models/Reservation.js").handler(sequelize);
+let Table = require("./models/Table.js").handler(sequelize);
+let User = require("./models/User.js").handler(sequelize);
+
+sequelize.models = { Admin_deleted, Admin, Diet, Dish, Inventory, Option, Reservation, Table, User };
+
+console.log("Admin.name",Admin.name);
+
+Reservation.hasOne( User );
+
+
+User.hasMany( Reservation );
+Table.hasMany( Reservation );
+
+
+Reservation.hasOne( Table, { foreignKey:"ticket reserve", as:"ticket reserve" } );
+
+
+Diet.belongsToMany( Dish, { through:"dish_diets", timestamps:false } );
+Dish.belongsToMany( Diet, { through:"dish_diets", timestamps:false } );
 
 
 module.exports.handler = { 
   conn: sequelize,
-  Admin_deleted: Admin_deleted(sequelize),
-  Admin: Admin(sequelize),
-  Diet: Diet(sequelize),
-  Dish: Dish(sequelize),
-  Inventory: Inventory(sequelize),
-  Option: Option(sequelize),
-  Reservation: Reservation(sequelize),
-  Table: Table(sequelize),
-  User: User(sequelize)
+  Admin_deleted: Admin_deleted,
+  Admin,
+  Diet,
+  Dish,
+  Inventory,
+  Option,
+  Reservation,
+  Table,
+  User
 };
