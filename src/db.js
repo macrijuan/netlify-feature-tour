@@ -29,17 +29,12 @@ let User = require("./models/User.js").handler(sequelize);
 
 sequelize.models = { Admin_deleted, Admin, Diet, Dish, Inventory, Option, Reservation, Table, User };
 
-console.log("Admin.name",Admin.name);
-
-Reservation.hasOne( User );
-
 
 User.hasMany( Reservation );
 Table.hasMany( Reservation );
 
-
+Reservation.hasOne( User );
 Reservation.hasOne( Table, { foreignKey:"ticket reserve", as:"ticket reserve" } );
-
 
 Diet.belongsToMany( Dish, { through:"dish_diets", timestamps:false } );
 Dish.belongsToMany( Diet, { through:"dish_diets", timestamps:false } );
@@ -47,7 +42,7 @@ Dish.belongsToMany( Diet, { through:"dish_diets", timestamps:false } );
 
 module.exports.handler = { 
   conn: sequelize,
-  Admin_deleted: Admin_deleted,
+  Admin_deleted,
   Admin,
   Diet,
   Dish,

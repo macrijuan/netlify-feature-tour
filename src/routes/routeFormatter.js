@@ -63,7 +63,7 @@ async function getMany(Model, query, res, notFoundData){
       if(query.options==="t"){
         console.log(Model.tableName);
         Option.findOne({
-          where:{ model:Model.tableName.replace( Model.tableName[0], Model.tableName[0].toUpperCase()) },
+          where:{ model:Model.tableName },
           attributes:{ exclude:[ "id", "model" ] }
         }).then(opt=>{
           if(opt){
