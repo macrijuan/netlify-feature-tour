@@ -1,5 +1,5 @@
 const { wrongDataType, wrongLengthBetween, wrongLengthBetweenArr, wrongCharType, isMandatory, wrongNumberSize, copyedData } = require("../../error").handler;
-const { Dish } = require("../../../db.js");
+const Dish  = require("../../../db.js");
 
 //nameValidator --> name=string, errors=arr. || fills errors.name with error messeges if format not allowed.
 function nameValidator(name, errors){
