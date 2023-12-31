@@ -4,7 +4,11 @@ const{ nameValidator, ingredientsValidator, dietsValidator, descriptionValidator
 
 router.use((req,res,next)=>{
   res.locals.errors = {};
+  
   req.body = JSON.parse( req.body.toString() );
+  console.log("req.body");
+  console.log(req.body);
+
   Object.keys(req.body).forEach(prop=>{
     switch(true){
       case typeof req.body[prop] === "object" && Array.isArray(req.body[prop].data):
@@ -15,6 +19,7 @@ router.use((req,res,next)=>{
       break;
     };
   });
+
 	nameValidator(req.body.name, res.locals.errors);
 	ingredientsValidator(req.body.ingredients, res.locals.errors);
 	dietsValidator(req.body.diets, res.locals.errors);

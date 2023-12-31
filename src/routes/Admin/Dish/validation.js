@@ -113,9 +113,8 @@ function priceValidator(price, errors){
 function tasteValidator(taste, errors){
   errors.taste = [];
   console.log("attributes");
-  console.log( Dish.tableAttributes );
+  console.log( Dish );
   if( typeof taste !== "string" ){ errors.taste.push(isMandatory("taste")); return; };
-  // if( !Dish.getAttributes() )
 };
 
 module.exports.handler={
