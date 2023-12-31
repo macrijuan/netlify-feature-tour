@@ -1,5 +1,5 @@
 const { wrongDataType, wrongLengthBetween, wrongLengthBetweenArr, wrongCharType, isMandatory, wrongNumberSize, copyedData } = require("../../error").handler;
-const Dish  = require("../../../db.js").Dish;
+const DB  = require("../../../db.js");
 
 //nameValidator --> name=string, errors=arr. || fills errors.name with error messeges if format not allowed.
 function nameValidator(name, errors){
@@ -113,7 +113,7 @@ function priceValidator(price, errors){
 function tasteValidator(taste, errors){
   errors.taste = [];
   console.log("attributes");
-  console.log( Dish );
+  console.log( DB.dish );
   if( typeof taste !== "string" ){ errors.taste.push(isMandatory("taste")); return; };
 };
 
