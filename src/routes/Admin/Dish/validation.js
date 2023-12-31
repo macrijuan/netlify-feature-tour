@@ -112,9 +112,10 @@ function priceValidator(price, errors){
 
 function tasteValidator(taste, errors){
   errors.taste = [];
-  console.log("attributes");
-  console.log( DB.dish );
-  if( typeof taste !== "string" ){ errors.taste.push(isMandatory("taste")); return; };
+  if(
+    typeof taste !== "string"
+    || !['salty', 'sweet', 'sour', 'bittersweet', 'bitter', 'spicy'].includes(taste)
+    ){ errors.taste.push(isMandatory("taste")); return; };
 };
 
 module.exports.handler={

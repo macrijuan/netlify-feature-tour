@@ -40,13 +40,5 @@ Dish.belongsToMany( Diet, { through:"dish_diets", timestamps:false } );
 
 module.exports.handler = { 
   conn: sequelize,
-  Admin_deleted,
-  Admin,
-  Diet,
-  Dish,
-  Inventory,
-  Option,
-  Reservation,
-  Table,
-  User
+  ...sequelize.models
 };
