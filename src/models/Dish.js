@@ -56,6 +56,7 @@ module.exports.handler = (sequelize) => {
       type:ENUM('salty', 'sweet', 'sour', 'bittersweet', 'bitter', 'spicy'),
       allowNull:false
     },
+
     price:{
       type:INTEGER,
       allowNull:false,
@@ -64,6 +65,7 @@ module.exports.handler = (sequelize) => {
         min:0
       }
     },
+    
     available:{
       type:BOOLEAN,
       allowNull:false,

@@ -1,4 +1,5 @@
 const {wrongDataType, wrongLengthBetween, wrongLengthBetweenArr, wrongCharType, isMandatory, wrongNumberSize, copyedData} = require("../../error").handler;
+const { Dish } = require("../../../db.js");
 
 //nameValidator --> name=string, errors=arr. || fills errors.name with error messeges if format not allowed.
 function nameValidator(name, errors){
@@ -107,6 +108,14 @@ function priceValidator(price, errors){
   if(isNaN(price)) {errors.price.push(wrongDataType); return;};
   if(price>100000 || price<0)errors.price.push(wrongNumberSize("price",0,100000));
   if(!errors.price.length)delete errors.price;
+};
+
+function tasteValidator(taste, errors){
+  errors.taste = [];
+  console.log("attributes");
+  console.log( Dish.getAttributes() );
+  if( typeof taste !== "string" ){ errors.taste.push(isMandatory("taste")); return; };
+  // if( !Dish.getAttributes() )
 };
 
 module.exports.handler={
