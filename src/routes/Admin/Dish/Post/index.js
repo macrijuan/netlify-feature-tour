@@ -33,6 +33,7 @@ async( req, res )=>{
 			});
     });
 	}catch(err){
+		console.log("ERROR:");
 		console.log(err);
 		res.status(500).json(errJSON("unknown", unknown));
 	};
