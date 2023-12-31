@@ -3,7 +3,6 @@ const {wrongDataType, wrongLengthBetween, wrongLengthBetweenArr, wrongCharType, 
 //nameValidator --> name=string, errors=arr. || fills errors.name with error messeges if format not allowed.
 function nameValidator(name, errors){
   errors.name=[];
-  console.log("name",name);
   if(!name||typeof name !== "string" || !name.length){errors.name.push(isMandatory("name"));return;};
   if(name.length>30 || name.length<3)  {errors.name=[wrongLengthBetween("name", 3, 30)];};
   if(!errors.name.length)delete errors.name;
