@@ -4,8 +4,7 @@ const{nameValidator, ingredientsValidator, dietsValidator, descriptionValidator,
 
 router.use((req,res,next)=>{
   res.locals.errors = {};
-  console.log( "src/routes/Admin/Dish/Post/Controller/format.js 7:0" );
-  console.log( Buffer.from(req.body.toJSON()) );
+  req.body = JSON.parse( req.body.toString() );
   Object.keys(req.body).forEach(prop=>{
     switch(true){
       case typeof req.body[prop] === "object" && Array.isArray(req.body[prop].data):
