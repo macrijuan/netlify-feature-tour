@@ -3,6 +3,7 @@ const router = Router();
 const{nameValidator, ingredientsValidator, dietsValidator, descriptionValidator, imageValidator, priceValidator}=require("../../validation").handler;
 
 router.use((req,res,next)=>{
+  req.body = JSON.parse( req.body.toString() );
   if(req.body.hasOwnProperty("name"))nameValidator(req.body.name, res.locals.errors);
 	if(req.body.hasOwnProperty("ingredients"))ingredientsValidator(req.body.ingredients, res.locals.errors, true);
 	if(req.body.hasOwnProperty("diets"))dietsValidator(req.body.diets, res.locals.errors, true);
