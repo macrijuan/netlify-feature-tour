@@ -23,6 +23,7 @@ router.use((req,res,next)=>{
 	priceValidator(req.body.price, res.locals.errors);
 	imageValidator(req.body.image, res.locals.errors);
 
+  console.log("ERRORS:");
   console.log(res.locals.errors);
 
   if(Object.keys(res.locals.errors).length){
