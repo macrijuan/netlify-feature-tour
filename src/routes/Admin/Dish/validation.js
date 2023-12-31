@@ -124,5 +124,6 @@ module.exports.handler={
   dietsValidator,
   descriptionValidator,
   imageValidator,
-  priceValidator
+  priceValidator,
+  tasteValidator
 };

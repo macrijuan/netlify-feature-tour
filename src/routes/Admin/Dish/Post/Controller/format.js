@@ -1,6 +1,6 @@
-const {Router}=require("express");
+const { Router }=require("express");
 const router = Router();
-const{nameValidator, ingredientsValidator, dietsValidator, descriptionValidator, imageValidator, priceValidator}=require("../../validation").handler;
+const{ nameValidator, ingredientsValidator, dietsValidator, descriptionValidator, imageValidator, priceValidator, tasteValidator }=require("../../validation").handler;
 
 router.use((req,res,next)=>{
   res.locals.errors = {};
@@ -18,9 +18,10 @@ router.use((req,res,next)=>{
 	nameValidator(req.body.name, res.locals.errors);
 	ingredientsValidator(req.body.ingredients, res.locals.errors);
 	dietsValidator(req.body.diets, res.locals.errors);
-	descriptionValidator(req.body.description, res.locals.errors);
   req.body.price = Number(req.body.price);
 	priceValidator(req.body.price, res.locals.errors);
+  tasteValidator( req.body.taste, res.locals.errors);
+	descriptionValidator(req.body.description, res.locals.errors);
 	imageValidator(req.body.image, res.locals.errors);
 
   console.log("ERRORS:");
