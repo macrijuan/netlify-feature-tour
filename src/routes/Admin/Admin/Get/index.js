@@ -28,7 +28,6 @@ router.get("/get_admin_user/:id", async(req,res)=>{
 });
 
 router.get("/login",
-( req, res, next )=>{ console.log("DATA"); console.log(req.body); console.log(req.params); console.log(req.query); next(); },
 async(req,res)=>{
   Admin.findOne({
     where:{
