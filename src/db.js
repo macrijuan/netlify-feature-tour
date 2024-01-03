@@ -16,18 +16,18 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
 });
 
 const modelDefiners = [
-  require("./models/AdminDeleted.js").handler,
-  require("./models/Admin.js").handler,
-  require("./models/Diet.js").handler,
-  require("./models/Dish.js").handler,
-  require("./models/Inventory.js").handler,
-  require("./models/Option.js").handler,
-  require("./models/Reservation.js").handler,
-  require("./models/Table.js").handler,
-  require("./models/User.js").handler
+  require("./models/AdminDeleted.js"),
+  require("./models/Admin.js"),
+  require("./models/Diet.js"),
+  require("./models/Dish.js"),
+  require("./models/Inventory.js"),
+  require("./models/Option.js"),
+  require("./models/Reservation.js"),
+  require("./models/Table.js"),
+  require("./models/User.js")
 ];
 
-modelDefiners.forEach(model => model(sequelize));
+modelDefiners.forEach(model => model.handler(sequelize));
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => {
