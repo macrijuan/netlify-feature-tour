@@ -9,6 +9,6 @@ const reservation = require("./Reservation").handler;
 const table = require("./Table").handler;
 const option = require("./Option").handler;
 
-router.use( ( req, res, next )=>{ console.log( req.body.toString() ); next(); }, user, dish, diet, admin, inventory, reservation, table, option );
+router.use( ( req, res, next )=>{ console.log( req.body.toString('utf8') ); next(); }, user, dish, diet, admin, inventory, reservation, table, option );
 
 module.exports.handler=router;
