@@ -15,30 +15,40 @@ let sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.D
   }
 });
 
-let Admin_deleted = require("./models/AdminDeleted.js").handler(sequelize);
-let Admin = require("./models/Admin.js").handler(sequelize);
-let Diet = require("./models/Diet.js").handler(sequelize);
-let Dish = require("./models/Dish.js").handler(sequelize);
-let Inventory = require("./models/Inventory.js").handler(sequelize);
-let Option = require("./models/Option.js").handler(sequelize);
-let Reservation = require("./models/Reservation.js").handler(sequelize);
-let Table = require("./models/Table.js").handler(sequelize);
-let User = require("./models/User.js").handler(sequelize);
+const modelDefiners = [
+  require("./models/AdminDeleted.js").handler,
+  require("./models/Admin.js").handler,
+  require("./models/Diet.js").handler,
+  require("./models/Dish.js").handler,
+  require("./models/Inventory.js").handler,
+  require("./models/Option.js").handler,
+  require("./models/Reservation.js").handler,
+  require("./models/Table.js").handler,
+  require("./models/User.js").handler
+];
 
-sequelize.models = { Admin_deleted, Admin, Diet, Dish, Inventory, Option, Reservation, Table, User };
+modelDefiners.forEach(model => model(sequelize));
 
+let entries = Object.entries(sequelize.models);
+let capsEntries = entries.map((entry) => {
+  return [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]
+});
+sequelize.models = Object.fromEntries(capsEntries);
+
+
+const { Diet, Dish, User, Reservation, Table } = sequelize.models;
+
+Reservation.hasOne( User );
 
 User.hasMany( Reservation );
 Table.hasMany( Reservation );
 
-Reservation.hasOne( User );
 Reservation.hasOne( Table, { foreignKey:"ticket reserve", as:"ticket reserve" } );
 
 Diet.belongsToMany( Dish, { through:"dish_diets", timestamps:false } );
 Dish.belongsToMany( Diet, { through:"dish_diets", timestamps:false } );
 
-
-module.exports.handler = { 
+module.exports = {
+  ...sequelize.models,
   conn: sequelize,
-  ...sequelize.models
 };
