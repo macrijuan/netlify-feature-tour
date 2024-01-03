@@ -8,7 +8,6 @@ const {unknown, errJSON} = require("../../../error").handler;
 
 router.post("/post_diet",async(req,res)=>{
 	try{
-		req.body = JSON.parse( req.body.toString() );
 		const {name, description}=req.body;
 		const errors = {};
 		Object.keys(req.body).forEach(prop=>{
