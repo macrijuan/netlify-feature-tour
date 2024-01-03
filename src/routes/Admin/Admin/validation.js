@@ -5,8 +5,8 @@ const uppercase = /^[A-ZÀ-Ý]{1,32}$/;//test 3
 const number = /^[\d]{1,32}$/;//test 4
 
 const nameFormat = /^[a-zà-ÿA-ZÀ-Ý ]*$/;
-const {wrongCharType, wrongLengthBetween, isMandatory, atLeastOne, cantContain, wrongDataType, unknown} = require("../../error");
-const { Admin } = require("../../../db");
+const {wrongCharType, wrongLengthBetween, isMandatory, atLeastOne, cantContain, unknown} = require("../../error").handler;
+const { Admin } = require("../../../db").handler;
 
 //EVERY FUNCTION HERE SETS res.locals.errors arrays. They fill them with errors and if there's any, they delete the error array.
 
@@ -51,6 +51,7 @@ function namesValidator(name, routeErrors, dataName){
 
 function statusValidator(status, errors){
   errors.status=[];
+  console.log(Admin);
   if(!status || typeof status !== "string" || !Admin.tableAttributes.status.values.includes(status))errors.status.push(unknown);
   if(!errors.status.length)delete errors.status;
 };

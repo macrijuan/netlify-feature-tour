@@ -1,5 +1,5 @@
-const { Inventory }=require("../../../db");
-const {wrongLengthBetween, wrongNumberSize, isMandatory}=require("../../error");
+const { Inventory }=require("../../../db").handler;
+const {wrongLengthBetween, wrongNumberSize, isMandatory}=require("../../error").handler;
 
 function nameValidator(name, errors){
   errors.name = [];

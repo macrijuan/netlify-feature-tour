@@ -1,4 +1,4 @@
-const {wrongLengthBetween, wrongNumberSize, isMandatory, wrongCharType} = require("../../error");
+const {wrongLengthBetween, wrongNumberSize, isMandatory, wrongCharType} = require("../../error").handler;
 
 function tableNameValidation(name, errors){
   errors.name=[];
