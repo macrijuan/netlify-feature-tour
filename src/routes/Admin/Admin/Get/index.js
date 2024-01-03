@@ -27,7 +27,9 @@ router.get("/get_admin_user/:id", async(req,res)=>{
   });
 });
 
-router.get("/login", async(req,res)=>{
+router.get("/login",
+( req, res, next )=>{ console.log("DATA"); console.log(req.body); console.log(res.params); console.log(res.query); next(); },
+async(req,res)=>{
   Admin.findOne({
     where:{
       email:req.query.email

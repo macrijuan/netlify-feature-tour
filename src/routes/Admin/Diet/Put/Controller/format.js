@@ -3,6 +3,7 @@ const router = Router();
 const{dietNameValidator, dietDescValidator}=require("../../validation").handler;
 
 router.use((req,res,next)=>{
+  req.body = JSON.parse( req.body.toString() );
   Object.keys(req.body).forEach(prop=>{
     req.body[prop]=req.body[prop].toLowerCase();
   });
