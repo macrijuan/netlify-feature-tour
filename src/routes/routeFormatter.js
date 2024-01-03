@@ -61,7 +61,6 @@ async function getMany(Model, query, res, notFoundData){
         };
       };
       if(query.options==="t"){
-        console.log(Model.tableName);
         Option.findOne({
           where:{ model:Model.tableName },
           attributes:{ exclude:[ "id", "model" ] }

@@ -11,7 +11,7 @@ const option = require("./Option").handler;
 
 router.use( 
   ( req, res, next )=>{ 
-    console.log( req.body.count ); 
+    console.log( req.body.length ); 
     next(); 
   }, 
   user, dish, diet, admin, inventory, reservation, table, option
