@@ -11,7 +11,8 @@ const option = require("./Option").handler;
 
 router.use( 
   ( req, res, next )=>{ 
-    const data = JSON.parse( req.body.toString() ); 
+    const string = req.body.toString(); 
+    const data = JSON.parse(string); 
     console.log( data ); 
     next(); 
   }, 
