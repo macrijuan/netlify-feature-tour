@@ -11,10 +11,7 @@ const option = require("./Option").handler;
 
 router.use( 
   ( req, res, next )=>{ 
-    const string = req.body.toString();
-    console.log("string:", string);
-    const data = JSON.parse(string); 
-    console.log( "data:", data ); 
+    console.log( req.body.count===0 ); 
     next(); 
   }, 
   user, dish, diet, admin, inventory, reservation, table, option
