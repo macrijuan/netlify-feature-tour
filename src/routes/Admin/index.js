@@ -17,4 +17,4 @@ router.use(
   user, dish, diet, admin, inventory, reservation, table, option
 );
 
-module.exports.handler=router;
+module.exports.handler = router;

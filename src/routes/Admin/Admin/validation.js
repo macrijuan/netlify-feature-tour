@@ -51,7 +51,6 @@ function namesValidator(name, routeErrors, dataName){
 
 function statusValidator(status, errors){
   errors.status=[];
-  console.log(Admin);
   if(!status || typeof status !== "string" || !Admin.tableAttributes.status.values.includes(status))errors.status.push(unknown);
   if(!errors.status.length)delete errors.status;
 };
